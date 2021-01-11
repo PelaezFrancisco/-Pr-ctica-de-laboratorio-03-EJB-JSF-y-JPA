@@ -64,15 +64,5 @@ public class CategoryBean implements Serializable {
 	return null;
     }
 
-    public String edit(Categoria c) {
-	c.setEditable(true);
-	return null;
-    }
-
-    public String save(Categoria c) {
-	ejbCategoryFacade.edit(c);
-	c.setEditable(false);
-	return null;
-    }
 
 }

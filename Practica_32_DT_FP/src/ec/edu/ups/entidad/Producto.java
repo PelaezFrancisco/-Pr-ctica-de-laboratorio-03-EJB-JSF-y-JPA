@@ -23,11 +23,11 @@ public class Producto implements Serializable {
 	//private String pro_imagen;
 	
 	@ManyToOne
-	@JoinColumn(name = "cat_id", unique = true, nullable = false)
+	@JoinColumn(name = "cat_id",  nullable = false)
 	private Categoria categoria;
 	
 	@ManyToOne
-	@JoinColumn(name = "bod_id", unique = true, nullable = false)
+	@JoinColumn(name = "bod_id", nullable = false)
 	private Bodega bodega;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "productos" )

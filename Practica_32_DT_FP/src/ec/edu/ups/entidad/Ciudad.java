@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-public class Cuidad implements Serializable {
+public class Ciudad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -18,12 +18,12 @@ public class Cuidad implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cuidad" )
     private ArrayList<Bodega>bodega;
     
-	public Cuidad() {
+	public Ciudad() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cuidad(int id, String nombre) {
+	public Ciudad(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;

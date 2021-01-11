@@ -21,11 +21,11 @@ public class FacturaCabecera implements Serializable {
 	private char estado;
 	
 	@ManyToOne
-	@JoinColumn(name = "emp_id", unique = true, nullable = false)
+	@JoinColumn(name = "emp_id",  nullable = false)
 	private Empleados empleado ;
 	
 	@ManyToOne
-	@JoinColumn(name = "cli_id", unique = true, nullable = false)
+	@JoinColumn(name = "cli_id", nullable = false)
 	private Cliente cliente ;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaCab")
