@@ -15,7 +15,7 @@ public class Bodega implements  Serializable {
     private int id;
     
     private String nombre;
-    private String descripcion;
+    private String direccion;
     
     @ManyToOne
 	@JoinColumn(name = "cd_id")
@@ -32,7 +32,7 @@ public class Bodega implements  Serializable {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
+		this.direccion = direccion;
 		this.cuidad = cuidad;
 	}
 
@@ -52,12 +52,12 @@ public class Bodega implements  Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getDireccion() {
+		return direccion;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	public Ciudad getCuidad() {
