@@ -14,7 +14,7 @@ public class Bodega implements  Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nombre;
-    private String descripcion;
+    private String direccion;
     
     @ManyToOne
 	@JoinColumn(name = "cd_id", nullable = false)
@@ -27,11 +27,11 @@ public class Bodega implements  Serializable {
 		super();
 	}
 
-	public Bodega(int id, String nombre, String descripcion, Ciudad ciudad) {
+	public Bodega(int id, String nombre, String direccion, Ciudad ciudad) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
+		this.direccion= direccion;
 		this.ciudad = ciudad;
 	}
 
@@ -51,12 +51,11 @@ public class Bodega implements  Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getDireccion() {
+		return direccion;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDireccion(String direccion) {
 	}
 
 	public Ciudad getCuidad() {
