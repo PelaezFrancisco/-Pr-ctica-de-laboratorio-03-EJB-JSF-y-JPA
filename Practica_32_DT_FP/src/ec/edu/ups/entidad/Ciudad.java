@@ -15,7 +15,7 @@ public class Ciudad implements Serializable {
 	private int id;
     private String nombre;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cuidad" )
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudad" )
     private ArrayList<Bodega>bodega;
     
 	public Ciudad() {
