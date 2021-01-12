@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Agregar Bodega</title>
+    <title>Eliminar Producto</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -46,32 +46,15 @@
 
     <header class="masthead">
         <div class="container">
-        <h3>Agregar Bodega</h3>
             <div class="masthead-subheading">
                 <h:form id="formulario01">
                 	<br></br>
-                    <label> Cuidad </label>
+                    <label> Nombre del Producto</label>
                     <br></br>
-                    <h:selectOneMenu value="#{bodegaBean.ciudad}">
-						<f:selectItem itemValue="1" itemLabel="1. Cuenca" />
-						<f:selectItem itemValue="2" itemLabel="2. Guayaquil" />
-						<f:selectItem itemValue="3" itemLabel="3. Quito" />
-						<f:selectItem itemValue="4" itemLabel="4. Loja" />
-						<f:selectItem itemValue="5" itemLabel="5. Ambato" />
-					</h:selectOneMenu>
+                    <h:inputText id="nombre" value="#{productoBean.nombre}" />
                     <br></br>
                     <br></br>
-                    <label> Nombre Bodega </label>
-                    <br></br>
-                    <h:inputText id="bodega" value="#{bodegaBean.nombre}" />
-                    <br></br>
-                    <br></br>
-                    <label> Direccion </label>
-                    <br></br>
-                    <h:inputText id="direccion" value="#{bodegaBean.direccion}" />
-                    <br></br>
-					<br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaBean.add}" />
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Delete" action="#{productoBean.delete}" />
                 </h:form>
             </div>
         </div>

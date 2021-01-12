@@ -5,12 +5,11 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Agregar Bodega</title>
+    <title>Listar Bodegas</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Distribuidora</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -46,37 +45,42 @@
 
     <header class="masthead">
         <div class="container">
-        <h3>Agregar Bodega</h3>
             <div class="masthead-subheading">
-                <h:form id="formulario01">
-                	<br></br>
-                    <label> Cuidad </label>
-                    <br></br>
-                    <h:selectOneMenu value="#{bodegaBean.ciudad}">
-						<f:selectItem itemValue="1" itemLabel="1. Cuenca" />
-						<f:selectItem itemValue="2" itemLabel="2. Guayaquil" />
-						<f:selectItem itemValue="3" itemLabel="3. Quito" />
-						<f:selectItem itemValue="4" itemLabel="4. Loja" />
-						<f:selectItem itemValue="5" itemLabel="5. Ambato" />
-					</h:selectOneMenu>
-                    <br></br>
-                    <br></br>
-                    <label> Nombre Bodega </label>
-                    <br></br>
-                    <h:inputText id="bodega" value="#{bodegaBean.nombre}" />
-                    <br></br>
-                    <br></br>
-                    <label> Direccion </label>
-                    <br></br>
-                    <h:inputText id="direccion" value="#{bodegaBean.direccion}" />
-                    <br></br>
-					<br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaBean.add}" />
-                </h:form>
-            </div>
-        </div>
+            <h1>Lista de Bodegas</h1>
+                <h:form>
+					<h:dataTable value="#{productoBean.listaProductos}" var="pro" styleClass="tabla"
+						headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+					<h:column>
+						<f:facet name="header">Codigo</f:facet>#{pro.id}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>#{pro.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Descripcion</f:facet>#{pro.descripcion}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Precio</f:facet>#{pro.precio}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Stock</f:facet>#{pro.stock}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Categoria</f:facet>#{pro.categoria.nombre}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Bodega</f:facet>#{pro.bodega.nombre}
+					</h:column>
+						
+					</h:dataTable>
+				</h:form>
+			</div>
+		</div>
     </header>
 
 </h:body>
 
 </html>
+
