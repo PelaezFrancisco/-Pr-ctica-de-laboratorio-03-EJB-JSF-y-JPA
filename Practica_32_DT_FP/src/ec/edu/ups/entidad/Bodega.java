@@ -13,12 +13,15 @@ public class Bodega implements  Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    
     private String nombre;
     private String direccion;
     
     @ManyToOne
+<<<<<<< HEAD
 	@JoinColumn(name = "cd_id")
+=======
+	@JoinColumn(name = "cd_id", nullable = false)
+>>>>>>> 4f4b4652bba8ac632ce0fa3d9e566dc79591d92c
 	private Ciudad ciudad;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bodega" )
@@ -32,7 +35,11 @@ public class Bodega implements  Serializable {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+<<<<<<< HEAD
 		this.direccion = direccion;
+=======
+		this.direccion= direccion;
+>>>>>>> 4f4b4652bba8ac632ce0fa3d9e566dc79591d92c
 		this.ciudad = ciudad;
 	}
 
@@ -57,15 +64,19 @@ public class Bodega implements  Serializable {
 	}
 
 	public void setDireccion(String direccion) {
-		this.direccion = direccion;
 	}
 
 	public Ciudad getCuidad() {
 		return ciudad;
 	}
 
+<<<<<<< HEAD
 	public void setCuidad(Ciudad ciudad) {
 		this.ciudad = ciudad;
+=======
+	public void setCuidad(Ciudad cuidad) {
+		this.ciudad = cuidad;
+>>>>>>> 4f4b4652bba8ac632ce0fa3d9e566dc79591d92c
 	}
     
 }

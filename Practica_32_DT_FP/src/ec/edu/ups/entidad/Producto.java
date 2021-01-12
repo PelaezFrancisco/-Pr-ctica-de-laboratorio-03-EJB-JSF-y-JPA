@@ -23,7 +23,7 @@ public class Producto implements Serializable {
 	//private String pro_imagen;
 	
 	@ManyToOne
-	@JoinColumn(name = "cat_id",  nullable = false)
+	@JoinColumn(name = "cat_id", nullable = false)
 	private Categoria categoria;
 	
 	@ManyToOne
