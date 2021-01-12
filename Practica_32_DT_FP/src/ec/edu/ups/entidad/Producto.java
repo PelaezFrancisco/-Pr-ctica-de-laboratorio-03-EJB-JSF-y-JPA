@@ -37,19 +37,18 @@ public class Producto implements Serializable {
 	public Producto() {
 
 	}
-
-
-    public Producto(int id, String descripcion, String nombre, Double precio, int stock, Bodega bodega, Categoria categoria) {
+    
+	public Producto(int id, String descripcion, String nombre,  double precio, int stock , Bodega bodega, Categoria categoria) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.stock = stock;
+		this.nombre = nombre;
 		this.precio = precio;
+		this.stock = stock;
+		this.bodega= bodega;
 		this.categoria = categoria;
 		this.bodega = bodega;
     }
-
 
 	public int getId() {
 		return id;

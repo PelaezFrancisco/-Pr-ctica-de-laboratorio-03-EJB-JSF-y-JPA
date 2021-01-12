@@ -7,13 +7,16 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Default;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
+import javax.ws.rs.DefaultValue;
 
 import ec.edu.ups.ejb.BodegaFacade;
+import ec.edu.ups.ejb.CiudadFacade;
 import ec.edu.ups.entidad.Bodega;
-import ec.edu.ups.entidad.Categoria;
 import ec.edu.ups.entidad.Ciudad;
+import ec.edu.ups.entidad.Producto;
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
@@ -25,10 +28,25 @@ public class BodegaBean implements Serializable {
     @EJB
     private BodegaFacade ejbBodegaFacade;
     
+    @EJB
+    private CiudadFacade ejbCiudadFacade;
+    
+    
     private List<Bodega> lista;
+    private Bodega bodega;
+    
+    private Ciudad ciudad;
+    private List<Ciudad> listaCiudad;
+    
+    private List<Producto>listaProductos;  
+    private Producto producto;
+    
     private String nombre;
     private String direccion;
-    private Ciudad ciudad;
+    private String nombreCuidad;
+    private int idCiudad;
+    
+    
     
 	public BodegaBean() {
 		
@@ -36,9 +54,10 @@ public class BodegaBean implements Serializable {
 	
 	@PostConstruct
     public void init() {
-	//ejbCategoryFacade.create(new Category("Hola"));
-	//ejbCategoryFacade.create(new Category("1211"));
-	lista = ejbBodegaFacade.findAll();
+		lista = new ArrayList<Bodega>();
+		listaCiudad = new ArrayList<Ciudad>();
+		lista = ejbBodegaFacade.findAll();
+	
     }
 
 	public Bodega[] getList() {
@@ -65,6 +84,27 @@ public class BodegaBean implements Serializable {
 		this.direccion = direccion;
 	}
 
+	public int getIdCiudad() {
+		return idCiudad;
+	}
+
+	public void setIdCiudad(int idCiudad) {
+		this.idCiudad = idCiudad;
+	}
+
+	public List<Bodega> getLista() {
+		return lista;
+	}
+
+	
+	public String getNombreCuidad() {
+		return nombreCuidad;
+	}
+
+	public void setNombreCuidad(String nombreCuidad) {
+		this.nombreCuidad = nombreCuidad;
+	}
+
 	public Ciudad getCiudad() {
 		return ciudad;
 	}
@@ -72,12 +112,20 @@ public class BodegaBean implements Serializable {
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
 	}
-	
+
 	public String add() {
-		ejbBodegaFacade.create(new Bodega(0,this.nombre,this.direccion,this.ciudad));
-		lista = ejbBodegaFacade.findAll();
+		
+			idCiudad = Integer.parseInt(nombreCuidad);
+			System.out.println("Ciudad:"+ idCiudad +" Nombre: "+ nombre+ " Direccion: "+ direccion);
+			
+			ciudad= ejbCiudadFacade.buscarCiudad(idCiudad);
+			
+			System.out.println("Si encontro");
+			int a= 0;
+			ejbBodegaFacade.create(new Bodega(0,this.direccion,this.nombre,ciudad));
+			
 		return null;
 	}
-	   
-
+		
+	
 }

@@ -3,6 +3,9 @@ package ec.edu.ups.ejb;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
+import com.mysql.cj.Query;
 
 public abstract class AbstractFacade<T> {
 
@@ -10,7 +13,7 @@ public abstract class AbstractFacade<T> {
 
     public AbstractFacade(Class<T> entityClass) {
 	this.entityClass = entityClass;
-    }
+	}
 
     protected abstract EntityManager getEntityManager();
 
@@ -52,5 +55,12 @@ public abstract class AbstractFacade<T> {
 	javax.persistence.Query q = getEntityManager().createQuery(cq);
 	return ((Long) q.getSingleResult()).intValue();
     }
+    
+    public T read(int id) {
+    	return getEntityManager().find(entityClass, id);
+    	
+    }
+    
+   
 
 }

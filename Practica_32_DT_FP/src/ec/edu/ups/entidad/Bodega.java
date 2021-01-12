@@ -11,7 +11,7 @@ public class Bodega implements  Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
     private String direccion; 
@@ -28,7 +28,6 @@ public class Bodega implements  Serializable {
 	}
 
 	public Bodega(int id, String nombre, String direccion, Ciudad ciudad) {
-		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -58,12 +57,16 @@ public class Bodega implements  Serializable {
 	public void setDireccion(String direccion) {
 	}
 
-	public Ciudad getCuidad() {
-		return ciudad;
-	}
-	public void setCuidad(Ciudad ciudad) {
+	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
+	}
 
+	public ArrayList<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(ArrayList<Producto> productos) {
+		this.productos = productos;
 	}
     
 }

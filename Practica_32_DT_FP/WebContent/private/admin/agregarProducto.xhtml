@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Agregar Bodega</title>
+    <title>Agregar Producto</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -46,32 +46,62 @@
 
     <header class="masthead">
         <div class="container">
-        <h3>Agregar Bodega</h3>
+        
             <div class="masthead-subheading">
-                <h:form id="formulario01">
+                <h:form id="formulario1">
+                	<label> Crear Producto </label>
                 	<br></br>
-                    <label> Cuidad </label>
+                	<br></br>
+                    <label> Nombre </label>
                     <br></br>
-                    <h:selectOneMenu value="#{bodegaBean.ciudad}">
-						<f:selectItem itemValue="1" itemLabel="1. Cuenca" />
-						<f:selectItem itemValue="2" itemLabel="2. Guayaquil" />
-						<f:selectItem itemValue="3" itemLabel="3. Quito" />
-						<f:selectItem itemValue="4" itemLabel="4. Loja" />
-						<f:selectItem itemValue="5" itemLabel="5. Ambato" />
+                    <h:inputText id="nombre" value="#{productoBean.nombre}" />
+                    <br></br>
+                    <br></br>
+                    
+                    <label> Descripcion </label>
+                    <br></br>
+                    <h:inputText id="descripcion" value="#{productoBean.descripcion}" />
+                    <br></br>
+                    <br></br>
+                    
+                    <label> Stock </label>
+                    <br></br>
+                    <h:inputText id="stock" value="#{productoBean.stock}" />
+                    <br></br>
+                    <br></br>
+                    
+                    <label> Precio </label>
+                    <br></br>
+                    <h:inputText id="precio" value="#{productoBean.precio}" />
+                    <br></br>
+                    <br></br>
+                    
+                    <label> Categoria </label>
+                    <br></br>
+                    <h:selectOneMenu value="#{productoBean.cat}">
+						<f:selectItem itemValue="Electronicos" itemLabel="1. Electronicos" />
+						<f:selectItem itemValue="Lamparas" itemLabel="2. Lamparas" />
+						<f:selectItem itemValue="Sillas" itemLabel="3. Sillas" />
+						<f:selectItem itemValue="Electrodomesticos" itemLabel="4. Electrodomesticos" />
+						<f:selectItem itemValue="Sanitarios" itemLabel="5. Sanitarios" />
+						<f:selectItem itemValue="Limpieza" itemLabel="6. Limpieza" />
 					</h:selectOneMenu>
-                    <br></br>
-                    <br></br>
-                    <label> Nombre Bodega </label>
-                    <br></br>
-                    <h:inputText id="bodega" value="#{bodegaBean.nombre}" />
-                    <br></br>
-                    <br></br>
-                    <label> Direccion </label>
-                    <br></br>
-                    <h:inputText id="direccion" value="#{bodegaBean.direccion}" />
-                    <br></br>
 					<br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaBean.add}" />
+                    <br></br>
+                    
+                    <label> Bodega</label>
+                    <br></br>
+                    <h:selectOneMenu value="#{productoBean.bod}">
+						<f:selectItem itemValue="1" itemLabel="1. Bodega Solano" />
+						<f:selectItem itemValue="2" itemLabel="2. Bodega PLaza Central" />
+						<f:selectItem itemValue="3" itemLabel="3. Bodega Shyris" />
+						<f:selectItem itemValue="4" itemLabel="4. Bidega Urdesa" />
+						<f:selectItem itemValue="5" itemLabel="5. Bodega Paseo de los Cañaris" />
+						<f:selectItem itemValue="6" itemLabel="5. Bodega Alobamba" />
+					</h:selectOneMenu>
+					<br></br>
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{productoBean.add}" />
                 </h:form>
             </div>
         </div>
