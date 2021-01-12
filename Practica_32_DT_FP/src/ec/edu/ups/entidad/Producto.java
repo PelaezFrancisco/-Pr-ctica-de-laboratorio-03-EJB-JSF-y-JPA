@@ -33,12 +33,13 @@ public class Producto implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "productos" )
 	private ArrayList<FacturaDetalle> facturaDet; 
 
-    public Producto() {
+	
+	public Producto() {
 
-    }
+	}
 
-    
-	public Producto(int id, String nombre, String descripcion, int stock, double precio, Categoria categoria) {
+
+    public Producto(int id, String descripcion, String nombre, Double precio, int stock, Bodega bodega, Categoria categoria) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -46,7 +47,9 @@ public class Producto implements Serializable {
 		this.stock = stock;
 		this.precio = precio;
 		this.categoria = categoria;
-	}
+		this.bodega = bodega;
+    }
+
 
 	public int getId() {
 		return id;
