@@ -14,7 +14,7 @@ public class Bodega implements  Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nombre;
-    private String direccion;
+    private String direccion; 
     
     @ManyToOne
 	@JoinColumn(name = "cd_id", nullable = false)
@@ -61,21 +61,10 @@ public class Bodega implements  Serializable {
 	public Ciudad getCuidad() {
 		return ciudad;
 	}
-
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(Ciudad ciudad) {
+	public void setCuidad(Ciudad ciudad) {
 		this.ciudad = ciudad;
-	}
 
-	public ArrayList<Producto> getProductos() {
-		return productos;
-	}
-
-	public void setProductos(ArrayList<Producto> productos) {
-		this.productos = productos;
 	}
     
 }
+
