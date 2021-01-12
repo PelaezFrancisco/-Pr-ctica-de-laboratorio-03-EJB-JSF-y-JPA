@@ -9,7 +9,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-8.0.22.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/EclipseWorkSpace2/glassfish5/glassfish/lib/javaee.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Documents/UPS7/Plataforma_Webs/glassfish-5.1.0/glassfish5/glassfish/lib/javaee.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
