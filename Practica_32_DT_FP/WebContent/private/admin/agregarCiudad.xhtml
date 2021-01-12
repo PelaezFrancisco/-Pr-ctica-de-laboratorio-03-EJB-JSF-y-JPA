@@ -52,20 +52,10 @@
                 	<br></br>
                     <label> Cuidad </label>
                     <br></br>
-                    <h:inputText id="ciudad" value="#{bodegaBean.ciudad}" />
+                    <h:inputText id="nombre" value="#{ciudadBean.nombre}" />
                     <br></br>
                     <br></br>
-                    <label> Nombre Bodega </label>
-                    <br></br>
-                    <h:inputText id="bodega" value="#{bodegaBean.nombre}" />
-                    <br></br>
-                    <br></br>
-                    <label> Direccion </label>
-                    <br></br>
-                    <h:inputText id="direccion" value="#{bodegaBean.direccion}" />
-                    <br></br>
-					<br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{categoryBean.add}" />
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{ciudadBean.add}" />
                 </h:form>
             </div>
         </div>
