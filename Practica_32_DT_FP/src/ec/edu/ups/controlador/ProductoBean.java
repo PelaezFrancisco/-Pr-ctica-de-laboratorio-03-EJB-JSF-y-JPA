@@ -47,7 +47,6 @@ public class ProductoBean implements Serializable {
     private String stock;
     private String precio;
     private String cat;
-    private String bod;
     private int id;
     
     private double precio1;
@@ -61,13 +60,13 @@ public class ProductoBean implements Serializable {
 	public void init() {
 		//ejbCategoryFacade.create(new Category("Hola"));
 		//ejbCategoryFacade.create(new Category("1211"));
-		listaProductos = new ArrayList<Producto>();
-		listaCategorias= new ArrayList<Categoria>();
-		listaBodegas = new ArrayList<Bodega>();
+		//listaProductos = new ArrayList<Producto>();
+		//listaCategorias= new ArrayList<Categoria>();
+		//listaBodegas = new ArrayList<Bodega>();
 		
 		//listaProductoBodegas= ejbProductoFacade.findAll();
-		listaProductos = ejbProductoFacade.findAll();
-		listaProductos = ejbProductoFacade.listaProductosInventario();
+		//listaProductos = ejbProductoFacade.findAll();
+		//listaProductos = ejbProductoFacade.listaProductosInventario();
 		//listaProductoBodegas =ejbProductoFacade.listaInventarioBodega(3);
 	    }
 
@@ -133,14 +132,6 @@ public class ProductoBean implements Serializable {
 
 	public void setCat(String cat) {
 		this.cat = cat;
-	}
-
-	public String getBod() {
-		return bod;
-	}
-
-	public void setBod(String bod) {
-		this.bod = bod;
 	}
 
 	public ProductoFacade getEjbProductoFacade() {
@@ -209,8 +200,7 @@ public class ProductoBean implements Serializable {
 		this.listaProductoBodegas = listaProductoBodegas;
 	}
 
-	public String add() {
-		
+	/*public String add() {
 			int codigoB = Integer.valueOf(bod);
 			bodega= ejBodegaFacade.buscarBodegaC(codigoB);
 			System.out.println("La Bodega si existe");
@@ -221,7 +211,7 @@ public class ProductoBean implements Serializable {
 			precio1 = Double.parseDouble(precio);
 			stock1 = Integer.valueOf(stock);
 			System.out.println("|"+nombre+ "|"+"|"+descripcion+ "|"+"|"+stock1+ "|"+"|"+precio1+ "|"+"|"+bod+ "|"+"|"+cat+ "|");
-			ejbProductoFacade.create(new Producto(0,  this.descripcion,this.nombre, precio1, stock1, bodega, categoria));
+			//ejbProductoFacade.create(new Producto(0,  this.descripcion,this.nombre, precio1, stock1, bodega, categoria));
 			listaProductos=ejbProductoFacade.findAll();
 		return null;
 		
@@ -242,7 +232,7 @@ public class ProductoBean implements Serializable {
 		System.out.println("Nombre Producto"+ this.nombre);
 		ejbProductoFacade.remove(producto);
 		return null;
-	    }
+	    }*/
 	
 	
 	

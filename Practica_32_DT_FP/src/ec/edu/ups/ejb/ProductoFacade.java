@@ -25,7 +25,7 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 		// TODO Auto-generated method stub
 		return em;
 	}
-	
+	/*
 	public List<Producto>listaProductosInventario(){
 		String jpql = "SELECT pro FROM Producto pro ORDER BY pro.nombre ASC";
 		List<Producto> productos = em.createQuery(jpql).getResultList();
@@ -48,6 +48,6 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 			return null;
 		}
 		
-	}
+	}*/
 	
 }

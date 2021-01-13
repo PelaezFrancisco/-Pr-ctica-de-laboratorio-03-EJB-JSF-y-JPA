@@ -20,14 +20,15 @@ public class Bodega implements  Serializable {
 	@JoinColumn(name = "cd_id", nullable = false)
 	private Ciudad ciudad;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bodega" )
-    private ArrayList<Producto> productos;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bodega")
+    private ArrayList<BodegaProducto> bodega_producto;
     
 	public Bodega() {
 		super();
 	}
 
 	public Bodega(int id, String nombre, String direccion, Ciudad ciudad) {
+		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -55,19 +56,27 @@ public class Bodega implements  Serializable {
 	}
 
 	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public Ciudad getCiudad() {
+		return ciudad;
 	}
 
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
 	}
 
-	public ArrayList<Producto> getProductos() {
-		return productos;
+	public ArrayList<BodegaProducto> getBodega_producto() {
+		return bodega_producto;
 	}
 
-	public void setProductos(ArrayList<Producto> productos) {
-		this.productos = productos;
+	public void setBodega_producto(ArrayList<BodegaProducto> bodega_producto) {
+		this.bodega_producto = bodega_producto;
 	}
+
+	
+	
     
 }
 

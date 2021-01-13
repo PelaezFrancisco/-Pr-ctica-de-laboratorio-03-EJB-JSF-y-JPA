@@ -9,11 +9,11 @@ import com.mysql.cj.Query;
 
 public abstract class AbstractFacade<T> {
 
-    private Class<T> entityClass;
+	private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
 	this.entityClass = entityClass;
-	}
+    }
 
     protected abstract EntityManager getEntityManager();
 
@@ -54,11 +54,6 @@ public abstract class AbstractFacade<T> {
 	cq.select(getEntityManager().getCriteriaBuilder().count(rt));
 	javax.persistence.Query q = getEntityManager().createQuery(cq);
 	return ((Long) q.getSingleResult()).intValue();
-    }
-    
-    public T read(int id) {
-    	return getEntityManager().find(entityClass, id);
-    	
     }
     
    

@@ -26,29 +26,25 @@ public class Producto implements Serializable {
 	@JoinColumn(name = "cat_id", nullable = false)
 	private Categoria categoria;
 	
-	@ManyToOne
-	@JoinColumn(name = "bod_id", nullable = false)
-	private Bodega bodega;
-	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "productos" )
 	private ArrayList<FacturaDetalle> facturaDet; 
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
+	private ArrayList<BodegaProducto> bodega_producto;
 	
 	public Producto() {
 
 	}
-    
-	public Producto(int id, String descripcion, String nombre,  double precio, int stock , Bodega bodega, Categoria categoria) {
+
+	public Producto(int id, String nombre, String descripcion, int stock, double precio, Categoria categoria) {
 		super();
 		this.id = id;
-		this.descripcion = descripcion;
 		this.nombre = nombre;
-		this.precio = precio;
+		this.descripcion = descripcion;
 		this.stock = stock;
-		this.bodega= bodega;
+		this.precio = precio;
 		this.categoria = categoria;
-		this.bodega = bodega;
-    }
+	}
 
 	public int getId() {
 		return id;
@@ -98,31 +94,22 @@ public class Producto implements Serializable {
 		this.categoria = categoria;
 	}
 
-
-	public Bodega getBodega() {
-		return bodega;
-	}
-
-
-	public void setBodega(Bodega bodega) {
-		this.bodega = bodega;
-	}
-
-
 	public ArrayList<FacturaDetalle> getFacturaDet() {
 		return facturaDet;
 	}
-
 
 	public void setFacturaDet(ArrayList<FacturaDetalle> facturaDet) {
 		this.facturaDet = facturaDet;
 	}
 
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public ArrayList<BodegaProducto> getBodega_producto() {
+		return bodega_producto;
 	}
+
+	public void setBodega_producto(ArrayList<BodegaProducto> bodega_producto) {
+		this.bodega_producto = bodega_producto;
+	}
+    
 	
-	
- 
+
 }
