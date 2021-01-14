@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
+    <title>Gestion Productos</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Gestion Administrador</title>
+    <title>Distribuidora</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -16,9 +20,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="../../css/styles.css" rel="stylesheet" />
-</head>
 
-<body id="page-top">
+</h:head>
+<h:body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -28,19 +32,36 @@
                     <i class="fas fa-bars ml-1"></i>
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Gestionar Bodegas</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Gestionar Productos</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Gestionar Productos por Bodega</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Cerrar Sesion</a></li>
-                </ul>
+            	<h:form >
+	                <ul class="navbar-nav text-uppercase ml-auto">
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Producto" action = "agregarProducto.xhtml" />
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Buscar Producto" action = "agregarBodegaJSF.xhtml" />
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Eliminar Producto" action = "eliminarProducto.xhtml" /> 
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Listar Producto" action = "listarProductos.xhtml" /> 
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Aumentar Stock Bodega" action = "aumentarStock.xhtml" /> 
+	                    </li>
+	                </ul>
+                </h:form>
             </div>
         </div>
     </nav>
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Bienvenido</div>
+            <div class="masthead-subheading">Bienvenido a Gestion Productos - Realice sus Consultas</div>
             <div class="masthead-heading text-uppercase">Distribuidora FPDT</div>
             <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         </div>
@@ -260,6 +281,6 @@
     <script src="assets/mail/contact_me.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-</body>
+</h:body>
 
 </html>

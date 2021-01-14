@@ -39,13 +39,11 @@ public class ProductoBean implements Serializable {
     
     private String nombre;
     private String descripcion;
-    private String stock;
     private String precio;
     private String cat;
     private int id;
     
     private double precio1;
-    private int stock1;
     
 	public ProductoBean() {
 		
@@ -99,15 +97,6 @@ public class ProductoBean implements Serializable {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
-	public String getStock() {
-		return stock;
-	}
-
-	public void setStock(String stock) {
-		this.stock = stock;
-	}
-
 	public String getPrecio() {
 		return precio;
 	}
@@ -140,14 +129,6 @@ public class ProductoBean implements Serializable {
 		this.ejCategoriaFacade = ejCategoriaFacade;
 	}
 
-	public int getStock1() {
-		return stock1;
-	}
-
-	public void setStock1(int stock1) {
-		this.stock1 = stock1;
-	}
-
 	public double getPrecio1() {
 		return precio1;
 	}
@@ -171,11 +152,11 @@ public class ProductoBean implements Serializable {
 		try {
 			Categoria categoria = ejCategoriaFacade.buscarCategoria(this.cat);
 			System.out.println("El nombre de la Categoria Buscado: " +categoria.getNombre() +" El ID : "+ categoria.getId());
-			stock1 = Integer.valueOf(this.stock);
 			precio1 = Double.parseDouble(this.precio);
 			
-			System.out.println("|"+this.nombre+ "|"+"|"+this.descripcion+ "|"+"|"+stock1+ "|"+"|"+precio1+ "|"+"|"+this.cat+ "|");
-			ejbProductoFacade.create(new Producto(0, this.descripcion, this.nombre, precio1, stock1,  categoria));
+
+			System.out.println("|"+this.nombre+ "|"+"|"+this.descripcion+ "|"+"|"+precio1+ "|"+"|"+this.cat+ "|");
+			ejbProductoFacade.create(new Producto(0, this.descripcion, this.nombre, precio1,  categoria));
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

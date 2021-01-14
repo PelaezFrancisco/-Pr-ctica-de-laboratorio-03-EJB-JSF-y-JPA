@@ -3,15 +3,16 @@
 	<persistence-unit name="Prueba"
 	transaction-type="JTA">
 			<jta-data-source>jdbc/__proveedores</jta-data-source>
+		<class>ec.edu.ups.entidad.Ciudad</class>
 		<class>ec.edu.ups.entidad.Bodega</class>
 		<class>ec.edu.ups.entidad.Categoria</class>
 		<class>ec.edu.ups.entidad.Cliente</class>
-		<class>ec.edu.ups.entidad.Ciudad</class>
 		<class>ec.edu.ups.entidad.Empleados</class>
 		<class>ec.edu.ups.entidad.FacturaCabecera</class>
 		<class>ec.edu.ups.entidad.FacturaDetalle</class>
 		<class>ec.edu.ups.entidad.Producto</class>
 		<class>ec.edu.ups.entidad.BodegaProducto</class>
+		
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"

@@ -5,12 +5,11 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Eliminar Producto</title>
+    <title>Listar Productos</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Distribuidora</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -43,24 +42,42 @@
             </div>
         </div>
     </nav>
-<!--  
+
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
-            <div class="masthead-heading text-uppercase">Eliminar Producto</div>
-                <h:form id="formulario01">
-                	<br></br>
-                    <label> Nombre del Producto</label>
-                    <br></br>
-                    <h:inputText id="nombre" value="#{productoBean.nombre}" />
-                    <br></br>
-                    <br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Delete" action="#{productoBean.delete}" />
-                </h:form>
-            </div>
-        </div>
-    </header>-->
+            <div class="masthead-heading text-uppercase">Listar Productos</div>
+                <h:form>
+					<h:dataTable value="#{productoBean.listaProductos}" var="p" styleClass="tabla"
+						headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+					<h:column>
+						<f:facet name="header">Codigo</f:facet>#{p.id}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>#{p.nombre}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Descripcion</f:facet>#{p.descripcion}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Precio</f:facet>#{p.precio}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Categoria</f:facet>#{p.categoria.nombre}
+					</h:column>
+					
+						
+					</h:dataTable>
+				</h:form>
+			</div>
+		</div>
+    </header>
 
 </h:body>
 
 </html>
+
