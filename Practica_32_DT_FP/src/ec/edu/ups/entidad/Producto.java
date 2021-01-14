@@ -18,7 +18,6 @@ public class Producto implements Serializable {
 	private int id;
 	private String nombre;
 	private String descripcion;
-	private int stock;
 	private double precio;
 	//private String pro_imagen;
 	
@@ -36,12 +35,11 @@ public class Producto implements Serializable {
 
 	}
 
-	public Producto(int id, String nombre, String descripcion, int stock, double precio, Categoria categoria) {
+	public Producto(int id, String descripcion, String nombre, double precio,  Categoria categoria) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.stock = stock;
+		this.nombre = nombre;
 		this.precio = precio;
 		this.categoria = categoria;
 	}
@@ -70,13 +68,6 @@ public class Producto implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
 
 	public double getPrecio() {
 		return precio;

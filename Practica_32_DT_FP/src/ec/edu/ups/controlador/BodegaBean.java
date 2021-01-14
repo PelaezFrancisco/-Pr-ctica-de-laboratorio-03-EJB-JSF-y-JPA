@@ -15,6 +15,7 @@ import javax.ws.rs.DefaultValue;
 import ec.edu.ups.ejb.BodegaFacade;
 import ec.edu.ups.ejb.CiudadFacade;
 import ec.edu.ups.entidad.Bodega;
+import ec.edu.ups.entidad.Categoria;
 import ec.edu.ups.entidad.Ciudad;
 import ec.edu.ups.entidad.Producto;
 
@@ -112,20 +113,29 @@ public class BodegaBean implements Serializable {
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
 	}
-
+	
+	
 	public String add() {
-		
-			idCiudad = Integer.parseInt(nombreCuidad);
-			System.out.println("Ciudad:"+ idCiudad +" Nombre: "+ nombre+ " Direccion: "+ direccion);
+		System.out.println("Nombre: "+this.nombre);
+		try {
 			
-			ciudad= ejbCiudadFacade.buscarCiudad(idCiudad);
+			Ciudad ciudad= ejbCiudadFacade.buscarNombre(this.nombreCuidad);
+			System.out.println("El nombre de la ciudad es: "+ciudad.getNombre() + " Id: "+ciudad.getId());
+			ejbBodegaFacade.create(new Bodega(0, this.direccion, this.nombre,ciudad));	
 			
-			System.out.println("Si encontro");
-			int a= 0;
-			ejbBodegaFacade.create(new Bodega(0,this.direccion,this.nombre,ciudad));
-			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return null;
 	}
+	
+	public String delete() {
+		Bodega bodega = ejbBodegaFacade.buscarBodega(this.nombre);
+		System.out.println("Nombre de la Bodega: "+bodega.getNombre());
+		ejbBodegaFacade.remove(bodega);
 		
+		return null;
+	    }
 	
 }

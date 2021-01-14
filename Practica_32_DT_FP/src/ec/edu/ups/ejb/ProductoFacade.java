@@ -36,7 +36,7 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 		String jpql = "SELECT pro FROM Producto pro WHERE pro.bod_id=3";
 		List<Producto> productos = em.createQuery(jpql).getResultList();
 		return productos;
-	}
+	}*/
 	public Producto buscarProducto(String nombre) {
 		try {
 			String jpql = "SELECT pro FROM Producto pro WHERE pro.nombre='" + nombre + "'";
@@ -48,6 +48,6 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 			return null;
 		}
 		
-	}*/
+	}
 	
 }

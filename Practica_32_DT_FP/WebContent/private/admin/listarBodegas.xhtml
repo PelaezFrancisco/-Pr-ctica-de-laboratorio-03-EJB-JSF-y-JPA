@@ -46,7 +46,7 @@
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
-            <h1>Lista de Bodegas</h1>
+            <div class="masthead-heading text-uppercase">Listar Bodegas</div>
                 <h:form>
 					<h:dataTable value="#{bodegaBean.lista}" var="b" styleClass="tabla"
 						headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
@@ -60,6 +60,10 @@
 					
 					<h:column>
 						<f:facet name="header">Direccion</f:facet>#{b.direccion}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>#{b.ciudad.nombre}
 					</h:column>
 						
 					</h:dataTable>

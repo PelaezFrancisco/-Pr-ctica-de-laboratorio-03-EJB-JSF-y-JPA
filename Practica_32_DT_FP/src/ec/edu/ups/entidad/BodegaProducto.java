@@ -14,6 +14,7 @@ public class BodegaProducto implements  Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private int stock;
     
     @ManyToOne 
     @JoinColumn(name = "bod_id", nullable = false)
@@ -28,9 +29,10 @@ public class BodegaProducto implements  Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BodegaProducto(int id, Bodega bodega, Producto producto) {
+	public BodegaProducto(int id,int stock, Bodega bodega, Producto producto) {
 		super();
 		this.id = id;
+		this.stock= stock;
 		this.bodega = bodega;
 		this.producto = producto;
 	}
@@ -41,6 +43,13 @@ public class BodegaProducto implements  Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
 	public Bodega getBodega() {

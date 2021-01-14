@@ -34,4 +34,9 @@ public class CiudadFacade extends AbstractFacade<Ciudad> {
 			return null;
 		}
 	}
+	public Ciudad buscarNombre(String nombre) {
+			String jpql = "SELECT ciu FROM Ciudad ciu WHERE ciu.nombre='" + nombre +"'";
+			Ciudad ciu = (Ciudad) em.createQuery(jpql).getSingleResult();
+			return ciu;
+	}
 }

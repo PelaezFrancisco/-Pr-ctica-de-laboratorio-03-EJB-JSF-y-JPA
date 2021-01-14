@@ -30,27 +30,20 @@ public class ProductoBean implements Serializable {
     @EJB
     private CategoriaFacade ejCategoriaFacade;
     
-    @EJB
-    private BodegaFacade ejBodegaFacade;
     
     private List<Producto> listaProductos;
-    private List<Producto> listaProductoBodegas;
     private List<Categoria>listaCategorias;
-    private List<Bodega> listaBodegas;
     
-    
+    private Producto producto;
     private Categoria categoria;
-    private Bodega bodega;
     
     private String nombre;
     private String descripcion;
-    private String stock;
     private String precio;
     private String cat;
     private int id;
     
     private double precio1;
-    private int stock1;
     
 	public ProductoBean() {
 		
@@ -58,6 +51,9 @@ public class ProductoBean implements Serializable {
 	
 	@PostConstruct
 	public void init() {
+		listaProductos = new ArrayList<Producto>();
+		listaCategorias = new ArrayList<Categoria>();
+		listaProductos = ejbProductoFacade.findAll();
 		//ejbCategoryFacade.create(new Category("Hola"));
 		//ejbCategoryFacade.create(new Category("1211"));
 		//listaProductos = new ArrayList<Producto>();
@@ -102,22 +98,6 @@ public class ProductoBean implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public Bodega getBodega() {
-		return bodega;
-	}
-
-	public void setBodega(Bodega bodega) {
-		this.bodega = bodega;
-	}
-
-	public String getStock() {
-		return stock;
-	}
-
-	public void setStock(String stock) {
-		this.stock = stock;
-	}
-
 	public String getPrecio() {
 		return precio;
 	}
@@ -150,22 +130,6 @@ public class ProductoBean implements Serializable {
 		this.ejCategoriaFacade = ejCategoriaFacade;
 	}
 
-	public BodegaFacade getEjBodegaFacade() {
-		return ejBodegaFacade;
-	}
-
-	public void setEjBodegaFacade(BodegaFacade ejBodegaFacade) {
-		this.ejBodegaFacade = ejBodegaFacade;
-	}
-
-	public int getStock1() {
-		return stock1;
-	}
-
-	public void setStock1(int stock1) {
-		this.stock1 = stock1;
-	}
-
 	public double getPrecio1() {
 		return precio1;
 	}
@@ -183,39 +147,23 @@ public class ProductoBean implements Serializable {
 		this.listaCategorias = listaCategorias;
 	}
 
-	public List<Bodega> getListaBodegas() {
-		return listaBodegas;
-	}
 
-	public void setListaBodegas(List<Bodega> listaBodegas) {
-		this.listaBodegas = listaBodegas;
-	}
-	
-
-	public List<Producto> getListaProductoBodegas() {
-		return listaProductoBodegas;
-	}
-
-	public void setListaProductoBodegas(List<Producto> listaProductoBodegas) {
-		this.listaProductoBodegas = listaProductoBodegas;
-	}
-
-	/*public String add() {
-			int codigoB = Integer.valueOf(bod);
-			bodega= ejBodegaFacade.buscarBodegaC(codigoB);
-			System.out.println("La Bodega si existe");
+	public String add() {
+		System.out.println("Nombre Categoria: "+ this.cat);
+		try {
+			Categoria categoria = ejCategoriaFacade.buscarCategoria(this.cat);
+			System.out.println("El nombre de la Categoria Buscado: " +categoria.getNombre() +" El ID : "+ categoria.getId());
+			precio1 = Double.parseDouble(this.precio);
 			
-			categoria = ejCategoriaFacade.buscarCategoria(cat);
-			System.out.println("Si existe la categoria");
-			
-			precio1 = Double.parseDouble(precio);
-			stock1 = Integer.valueOf(stock);
-			System.out.println("|"+nombre+ "|"+"|"+descripcion+ "|"+"|"+stock1+ "|"+"|"+precio1+ "|"+"|"+bod+ "|"+"|"+cat+ "|");
-			//ejbProductoFacade.create(new Producto(0,  this.descripcion,this.nombre, precio1, stock1, bodega, categoria));
-			listaProductos=ejbProductoFacade.findAll();
+			System.out.println("|"+this.nombre+ "|"+"|"+this.descripcion+ "|"+"|"+precio1+ "|"+"|"+this.cat+ "|");
+			ejbProductoFacade.create(new Producto(0, this.descripcion, this.nombre, precio1,  categoria));
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return null;
 		
 	}
+	/*
 	public String inventarioBodega(){
 		
 		bodega= ejBodegaFacade.buscarBodega(nombre);
@@ -233,8 +181,4 @@ public class ProductoBean implements Serializable {
 		ejbProductoFacade.remove(producto);
 		return null;
 	    }*/
-	
-	
-	
- 
 }

@@ -27,11 +27,11 @@ public class Bodega implements  Serializable {
 		super();
 	}
 
-	public Bodega(int id, String nombre, String direccion, Ciudad ciudad) {
+	public Bodega(int id, String direccion, String nombre, Ciudad ciudad) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
 		this.direccion = direccion;
+		this.nombre = nombre;
 		this.ciudad = ciudad;
 	}
 
@@ -74,9 +74,6 @@ public class Bodega implements  Serializable {
 	public void setBodega_producto(ArrayList<BodegaProducto> bodega_producto) {
 		this.bodega_producto = bodega_producto;
 	}
-
-	
-	
-    
+   
 }
 

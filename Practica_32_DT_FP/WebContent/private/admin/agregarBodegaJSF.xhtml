@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Agregar Bodega</title>
+    <title>Agregar Ciudad</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -46,18 +46,20 @@
 
     <header class="masthead">
         <div class="container">
+           
         <h3>Agregar Bodega</h3>
             <div class="masthead-subheading">
-                <h:form id="formulario01">
+            <div class="masthead-heading text-uppercase">Agregar Bodega</div>
+                <h:form >
                 	<br></br>
                     <label> Cuidad </label>
                     <br></br>
-                    <h:selectOneMenu value="#{bodegaBean.ciudad}">
-						<f:selectItem itemValue="1" itemLabel="1. Cuenca" />
-						<f:selectItem itemValue="2" itemLabel="2. Guayaquil" />
-						<f:selectItem itemValue="3" itemLabel="3. Quito" />
-						<f:selectItem itemValue="4" itemLabel="4. Loja" />
-						<f:selectItem itemValue="5" itemLabel="5. Ambato" />
+                    <h:selectOneMenu value="#{bodegaBean.nombreCuidad}">
+						<f:selectItem itemValue="Ambato" itemLabel="1. Ambato" />
+						<f:selectItem itemValue="Cuenca" itemLabel="2. Cuenca" />
+						<f:selectItem itemValue="Guayaquil" itemLabel="3. Guayaquil" />
+						<f:selectItem itemValue="Quito" itemLabel="4. Quito" />
+						<f:selectItem itemValue="Loja" itemLabel="5. Loja" />
 					</h:selectOneMenu>
                     <br></br>
                     <br></br>

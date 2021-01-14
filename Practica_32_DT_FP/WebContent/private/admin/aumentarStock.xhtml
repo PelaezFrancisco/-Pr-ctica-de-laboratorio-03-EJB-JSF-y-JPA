@@ -43,23 +43,34 @@
             </div>
         </div>
     </nav>
-<!-- 
+
     <header class="masthead">
         <div class="container">
-        <h3>Aumentar Stock por Bodega</h3>
             <div class="masthead-subheading">
-                <h:form id="formulario01">
+            <div class="masthead-heading text-uppercase">Aumentar Stock</div>
+                <h:form id="formulario">
+                	
                 	<br></br>
+                    <label> Nombre Producto </label>
+                    <br></br>
+                    <h:inputText id="nombre" value="#{bodegaProductoBean.nombrePro}" />
+                    <br></br>
+                    <br></br>
                     <label> Nombre Bodega </label>
                     <br></br>
-                    <h:inputText id="bodega" value="#{productoBean.nombre}" />
+                    <h:inputText id="bodega" value="#{bodegaProductoBean.nombreBodega}" />
                     <br></br>
                     <br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Listar" action="#{productoBean.listar}" />
+                    <label> Stock del Producto</label>
+                    <br></br>
+                    <h:inputText id="stock" value="#{bodegaProductoBean.stock}" />
+                    <br></br>
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaProductoBean.add}" />
                 </h:form>
             </div>
         </div>
-    </header> -->
+    </header> 
 
 </h:body>
 
