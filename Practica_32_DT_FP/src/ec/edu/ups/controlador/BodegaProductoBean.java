@@ -45,8 +45,10 @@ public class BodegaProductoBean implements Serializable {
     private List<Bodega> listaBodegas;
     private Bodega bodega;
     
+    private List<BodegaProducto> listaBodegaP;
    private String nombrePro;
    private String nombreBodega;
+   private String nombreBodega1;
    private String stock;
    
    private int stock1;
@@ -61,6 +63,7 @@ public class BodegaProductoBean implements Serializable {
 		listaBodPro = new ArrayList<BodegaProducto>();
 		listaBodegas= new ArrayList<Bodega>();
 		listaProductos = new ArrayList<Producto>();
+		listaBodegaP = new ArrayList<BodegaProducto>();
 		listaBodPro = ejBodegaProductoFacade.findAll();
 	
    }
@@ -145,6 +148,23 @@ public class BodegaProductoBean implements Serializable {
 		this.stock1 = stock1;
 	}
 	
+	
+	public String getNombreBodega1() {
+		return nombreBodega1;
+	}
+
+	public void setNombreBodega1(String nombreBodega1) {
+		this.nombreBodega1 = nombreBodega1;
+	}
+
+	public List<BodegaProducto> getListaBodegaP() {
+		return listaBodegaP;
+	}
+
+	public void setListaBodegaP(List<BodegaProducto> listaBodegaP) {
+		this.listaBodegaP = listaBodegaP;
+	}
+
 	public String add() {
 		System.out.println("Producto: "+this.nombrePro+ "| Bodega: "+ this.nombreBodega+ "| Stock"+ this.stock);
 		try {
@@ -160,8 +180,45 @@ public class BodegaProductoBean implements Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return "GestionProductos.xhtml";
 		
+	}
+	
+	public String ConsultarInv() {
+		//BodegaProducto bp= ejBodegaProductoFacade.TotalProductos();
+		//System.out.println("EL Stock Total es :"+ bp.getStock());
+		return null;
+	}
+	
+	public String InventarioBodega() {
+		System.out.println("La Bodega es :" +this.nombreBodega);
+		Bodega bodega = ejBodegaFacade.buscarBodega(this.nombreBodega);
+		int idBodega = bodega.getId();
+		System.out.println("Bodega Escogida: "+bodega.getId() + "| "+ bodega.getNombre());
+		listaBodegaP = ejBodegaProductoFacade.InventarioBodega(idBodega);
+		return null;
+	}
+	
+	public String editar() {
+		System.out.println("La bodega es "+ this.nombreBodega);
+		Bodega bodega = ejBodegaFacade.buscarBodega(this.nombreBodega);
+		System.out.println("Bodega es :"+ bodega.getNombre()+ "Id es: "+bodega.getId());
+		
+		Producto producto = ejProductoFacade.buscarProducto(this.nombrePro);
+		System.out.println("Producto es :"+ producto.getNombre()+ "Id es: "+producto.getId());
+		
+		int idB= bodega.getId();
+		int idP= producto.getId();
+		BodegaProducto bodegaProducto = ejBodegaProductoFacade.buscar(idB, idP);
+		
+		System.out.println("El Id de BP es :"+ bodegaProducto.getId());
+		
+		
+		stock1 = Integer.valueOf(this.stock);
+		bodegaProducto.setStock(stock1);
+		ejBodegaProductoFacade.edit(bodegaProducto);
+		
+		return null;
 	}
    
    

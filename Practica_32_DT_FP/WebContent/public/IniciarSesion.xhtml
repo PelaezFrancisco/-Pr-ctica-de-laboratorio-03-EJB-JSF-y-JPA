@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
+    <title>Iniciar Sesion</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Iniciar Sesion</title>
+    <title>Distribuidora</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -15,10 +19,11 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-</head>
+    <link href="../css/styles.css" rel="stylesheet" />
 
-<body id="page-top">
+</h:head>
+
+<h:body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -38,13 +43,20 @@
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
-                <form id="formulario01" method="POST" action="/Practica2_FP_DT/IniciarSesionController">
-                    <input type="text" id="email" name="email" value="" placeholder="Ingrese el correo ..." />
-                    <br><br>
-                    <input type="password" id="contra" name="contra" value="" placeholder="Ingrese su contraseña ..." />
-                    <br><br>
-                    <input class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" type="submit" id="login" name="login" value="Iniciar Sesión" />
-                </form>
+                <h:form id="formulario01">
+                	<br></br>
+                    <label> Correo Electronico </label>
+                    <br></br>
+                    <h:inputText id="email" value="#{empleadoBean.email}" />
+                    <br></br>
+                    <br></br>
+                    <label> Contraseña </label>
+                    <br></br>
+                    <h:inputText id="pass" value="#{empleadoBean.pass}" />
+                    <br></br>
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="IniciarSesion" action="#{empleadoBean.IniciarSesion}" />
+                </h:form>
             </div>
         </div>
     </header>
@@ -263,6 +275,6 @@
     <script src="assets/mail/contact_me.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-</body>
+</h:body>
 
 </html>

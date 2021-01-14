@@ -1,11 +1,12 @@
 package ec.edu.ups.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import ec.edu.ups.entidad.Bodega;
-
 @Stateless
 public class BodegaFacade extends AbstractFacade<Bodega>{
 	
@@ -46,5 +47,10 @@ public class BodegaFacade extends AbstractFacade<Bodega>{
 			return null;
 		}
 		
+	}
+	public List<Bodega>BuscarBodega(String nombre){
+		String jpql = "SELECT bod FROM Bodega bod WHERE bod.nombre='" + nombre + "'";
+		List<Bodega> bodega = em.createQuery(jpql).getResultList();
+		return bodega;
 	}
 }

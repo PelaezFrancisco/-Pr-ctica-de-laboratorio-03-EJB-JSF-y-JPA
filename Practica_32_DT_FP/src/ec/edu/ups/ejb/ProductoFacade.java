@@ -49,5 +49,11 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 		}
 		
 	}
+	public List<Producto>BuscarProducto(String nombre){
+		String jpql = "SELECT pro FROM Producto pro  WHERE pro.nombre='" + nombre + "'";
+		List<Producto> productos = em.createQuery(jpql).getResultList();
+		return productos;
+	}
+	
 	
 }

@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Aumentar Stock</title>
+    <title>Inventario por Bodega</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -47,30 +47,52 @@
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
-            <div class="masthead-heading text-uppercase">Aumentar Stock</div>
-                <h:form id="formulario">
-                	
+            <div class="masthead-heading text-uppercase">Inventario por Bodega</div>
+                <h:form >
                 	<br></br>
-                    <label> Nombre Producto </label>
+                    <label> Nombre de la Bodega</label>
                     <br></br>
-                    <h:inputText id="nombre" value="#{bodegaProductoBean.nombrePro}" />
-                    <br></br>
-                    <br></br>
-                    <label> Nombre Bodega </label>
-                    <br></br>
-                    <h:inputText id="bodega" value="#{bodegaProductoBean.nombreBodega}" />
+                    <h:inputText id="nombre" value="#{bodegaProductoBean.nombreBodega}" />
                     <br></br>
                     <br></br>
-                    <label> Stock del Producto</label>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Buscar" action="#{bodegaProductoBean.InventarioBodega}" />
+                <br></br>
+                <br></br>  
+                <h:dataTable value="#{bodegaProductoBean.listaBodegaP}" var="bp" >
+					<h:column>
+						<f:facet name="header">Nombre Bodega</f:facet>#{bp.bodega.nombre}
+					</h:column>
+					<h:column>
+						<f:facet name="header">ID Producto</f:facet>#{bp.producto.id}
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Nombre Producto</f:facet>#{bp.producto.nombre}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Precio Producto</f:facet>#{bp.producto.precio}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Stock</f:facet>#{bp.stock}
+					</h:column>
+				</h:dataTable>
+				<br></br>
+				<br></br>
+                    <label> Nombre Producto</label>
+                    <br></br>
+                    <h:inputText id="producto" value="#{bodegaProductoBean.nombrePro}" />
+                    <br></br>
+                    <br></br>
+                    <label> Nuevo Stock</label>
                     <br></br>
                     <h:inputText id="stock" value="#{bodegaProductoBean.stock}" />
                     <br></br>
                     <br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaProductoBean.add}" />
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Editar" action="#{bodegaProductoBean.editar}" />
                 </h:form>
             </div>
         </div>
-    </header> 
+    </header>
 
 </h:body>
 

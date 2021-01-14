@@ -34,12 +34,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
             	<h:form >
 	                <ul class="navbar-nav text-uppercase ml-auto">
+	                	<li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Categoria" action = "agregarCategoria.xhtml" />
+	                    </li>
+	                    
 	                    <li class="nav-item">
 	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Producto" action = "agregarProducto.xhtml" />
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Buscar Producto" action = "agregarBodegaJSF.xhtml" />
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Buscar Producto" action = "buscarProducto.xhtml" />
 	                    </li>
 	                    
 	                    <li class="nav-item">
@@ -51,8 +55,17 @@
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Aumentar Stock Bodega" action = "aumentarStock.xhtml" /> 
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Asignar Producto a Bodega" action = "asignarProBog.xhtml" /> 
 	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Inventario Por Bodega" action = "InventarioPorBodega.xhtml" /> 
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Aumentar Stock" action = "aumentarStock.xhtml" /> 
+	                    </li>
+	                    
 	                </ul>
                 </h:form>
             </div>

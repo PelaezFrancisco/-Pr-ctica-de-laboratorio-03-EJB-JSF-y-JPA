@@ -43,51 +43,43 @@
             </div>
         </div>
     </nav>
-<!-- 
+
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
             <div class="masthead-heading text-uppercase">Inventario por Bodega</div>
                 <h:form id="formulario01">
-                	<label> Inventario por Bodega </label>
                 	<br></br>
-                    <label> Nombre de la Bodega </label>
+                    <label> Nombre de la Bodega</label>
                     <br></br>
-                    <h:inputText id="nombre" value="#{productoBean.nombre}" />
+                    <h:inputText id="nombre" value="#{bodegaProductoBean.nombreBodega}" />
                     <br></br>
                     <br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="buscar" action="#{productoBean.inventarioBodega}" />
-                	
-                	<h:dataTable value="#{productoBean.listaProductoBodegas}" var="pro" styleClass="tabla"
-						headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
-						<h:column>
-						<f:facet name="header">Codigo</f:facet>#{pro.id}
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Buscar" action="#{bodegaProductoBean.InventarioBodega}" />
+                <br></br>
+                <br></br>  
+                <h:dataTable value="#{bodegaProductoBean.listaBodegaP}" var="bp" >
+					<h:column>
+						<f:facet name="header">Nombre Bodega</f:facet>#{bp.bodega.nombre}
+					</h:column>
+					<h:column>
+						<f:facet name="header">ID Producto</f:facet>#{bp.producto.id}
 					</h:column>
 					
 					<h:column>
-						<f:facet name="header">Nombre</f:facet>#{pro.nombre}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Descripcion</f:facet>#{pro.descripcion}
+						<f:facet name="header">Nombre Producto</f:facet>#{bp.producto.nombre}
 					</h:column>
 					<h:column>
-						<f:facet name="header">Precio</f:facet>#{pro.precio}
+						<f:facet name="header">Precio Producto</f:facet>#{bp.producto.precio}
 					</h:column>
 					<h:column>
-						<f:facet name="header">Stock</f:facet>#{pro.stock}
+						<f:facet name="header">Stock</f:facet>#{bp.stock}
 					</h:column>
-					<h:column>
-						<f:facet name="header">Categoria</f:facet>#{pro.categoria.nombre}
-					</h:column>
-					<h:column>
-						<f:facet name="header">Bodega</f:facet>#{pro.bodega.nombre}
-					</h:column>
-					</h:dataTable>
+				</h:dataTable>
                 </h:form>
             </div>
         </div>
-    </header> -->
+    </header>
 
 </h:body>
 
