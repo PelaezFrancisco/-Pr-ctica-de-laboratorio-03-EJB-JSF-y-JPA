@@ -144,5 +144,36 @@ public class ClienteBean implements Serializable{
 		}
 		
 	}
+	
+	public String buscarCliente() {
+		try {
+			cliente = new Cliente();
+			cliente = ejbClienteFacade.buscarCliente(this.cedula);
+			
+		} catch (Exception e) {
+		
+		return null;
+		}
+		return null;
+	}
+	
+	public String add() {
+		try {
+			cliente = new Cliente();
+			cliente.setCedula(this.cedula);
+			cliente.setApellido(this.apellido);
+			cliente.setDireccion(this.direccion);
+			cliente.setNombre(this.nombre);
+			cliente.setTelefono(this.telefono);
+			ejbClienteFacade.create(cliente);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+
+	
 
 }

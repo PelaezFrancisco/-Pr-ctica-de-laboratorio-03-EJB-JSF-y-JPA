@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Editar Cliente</title>
+    <title>Agregar Cliente</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -47,30 +47,38 @@
     <header class="masthead">
         <div class="container">
            
-        <h3>Editar Cliente</h3>
+        <h3>Agregar Cliente</h3>
             <div class="masthead-subheading">
-            <div class="masthead-heading text-uppercase">Editar Cliente</div>
-		<h:form id="form_chequear_cli">
-			<h:outputLabel value = "Cedula: "></h:outputLabel>
-			<h:inputText id="cedula" value="#{clienteBean.cedula}"></h:inputText>
-			<h:outputText value="&lt;br/&gt;" escape="false" />
-			<h:outputLabel value = "Nombre: "></h:outputLabel>
-			<h:inputText id="nombre" value="#{clienteBean.nombre}"></h:inputText>
-			<h:outputText value="&lt;br/&gt;" escape="false" />
-			<h:outputLabel value = "Apellido: "></h:outputLabel>
-			<h:inputText id="apellido" value="#{clienteBean.apellido}"></h:inputText>
-			<h:outputText value="&lt;br/&gt;" escape="false" />
-			<h:outputLabel value = "Direccion: "></h:outputLabel>
-			<h:inputText id="direccion" value="#{clienteBean.direccion}"></h:inputText>
-			<h:outputText value="&lt;br/&gt;" escape="false" />
-			<h:outputLabel value = "Telefono "></h:outputLabel>
-			<h:inputText id="telefono" value="#{clienteBean.telefono}"></h:inputText>
-			
-			<br/>
-			
-			<h:commandButton value="Editar" action="#{clienteBean.editarCliente}"></h:commandButton>
-			
-		</h:form>
+            <div class="masthead-heading text-uppercase">Agregar Cliente</div>
+		<h:form id="clienteform">
+		    <h:outputText value="Cedula:" />
+		    <h:inputText id="cedula"
+		        value="#{clienteBean.cedula}">
+		    </h:inputText>
+		    <br/>
+		    <h:outputText value="Nombre:" />
+		    <h:inputText id="nombre"
+		        value="#{clienteBean.nombre}">
+		    </h:inputText>
+		    <br/>
+		     <h:outputText value="Apellido:" />
+		    <h:inputText id="apellido"
+		        value="#{clienteBean.nombre}">
+		    </h:inputText>
+		    <br/>
+		    <h:outputText value="Direccion:" />
+		    <h:inputText id="direccion"
+		        value="#{clienteBean.direccion}">
+		    </h:inputText>
+		    <br/>
+		    <h:outputText value="Telefono:" />
+		    <h:inputText id="telefono"
+		        value="#{clienteBean.telefono}">
+		    </h:inputText>
+		    <br/>
+		    <h:commandButton value="Agregar" action="#{clienteBean.add}"></h:commandButton>
+		    
+		</h:form>	
 		</div>
         </div>
     </header>
