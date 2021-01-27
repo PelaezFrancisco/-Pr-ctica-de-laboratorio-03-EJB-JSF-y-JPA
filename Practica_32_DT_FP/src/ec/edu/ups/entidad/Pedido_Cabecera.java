@@ -23,9 +23,9 @@ public class Pedido_Cabecera implements Serializable{
 	private char estado;
 	
 	@ManyToOne
-	@JoinColumn(name = "cli_id", nullable = false)
-	private Cliente cliente;
-	
+	@JoinColumn(name = "emp_id",  nullable = false)
+	private Empleados empleado ;
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedidoCab")
 	private ArrayList<Pedido_Detalle> pedidoDet;
 
@@ -34,12 +34,12 @@ public class Pedido_Cabecera implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pedido_Cabecera(int num_cabecera, char estado, Cliente cliente, ArrayList<Pedido_Detalle> pedidoDet) {
+
+	public Pedido_Cabecera(int num_cabecera, char estado, Empleados empleado) {
 		super();
 		this.num_cabecera = num_cabecera;
 		this.estado = estado;
-		this.cliente = cliente;
-		this.pedidoDet = pedidoDet;
+		this.empleado = empleado;
 	}
 
 	public int getNum_cabecera() {
@@ -58,12 +58,12 @@ public class Pedido_Cabecera implements Serializable{
 		this.estado = estado;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Empleados getEmpleado() {
+		return empleado;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setEmpleado(Empleados empleado) {
+		this.empleado = empleado;
 	}
 
 	public ArrayList<Pedido_Detalle> getPedidoDet() {

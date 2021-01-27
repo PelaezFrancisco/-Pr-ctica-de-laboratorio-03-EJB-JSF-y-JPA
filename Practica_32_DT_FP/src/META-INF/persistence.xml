@@ -8,7 +8,6 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		<class>ec.edu.ups.entidad.Ciudad</class>
 		<class>ec.edu.ups.entidad.Bodega</class>
 		<class>ec.edu.ups.entidad.Categoria</class>
-		<class>ec.edu.ups.entidad.Cliente</class>
 		<class>ec.edu.ups.entidad.Empleados</class>
 		<class>ec.edu.ups.entidad.FacturaCabecera</class>
 		<class>ec.edu.ups.entidad.FacturaDetalle</class>

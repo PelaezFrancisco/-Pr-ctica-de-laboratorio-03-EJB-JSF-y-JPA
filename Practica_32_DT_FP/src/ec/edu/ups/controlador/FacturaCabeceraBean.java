@@ -11,7 +11,6 @@ import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
 import ec.edu.ups.ejb.FacturaCabeceraFacade;
-import ec.edu.ups.entidad.Cliente;
 import ec.edu.ups.entidad.Empleados;
 import ec.edu.ups.entidad.FacturaCabecera;
 
@@ -35,7 +34,6 @@ public class FacturaCabeceraBean implements Serializable{
 	private Double total;
 	private char estado;
 	
-	private List<Cliente> listacliente;
 	private List<Empleados> listaempleado;
 	
 	public FacturaCabeceraBean() {
@@ -44,23 +42,12 @@ public class FacturaCabeceraBean implements Serializable{
 	
 	@PostConstruct
 	public void init() {
-		listacliente = new ArrayList<Cliente>();
+		
 		listaempleado = new ArrayList<Empleados>();
 		
 		lisafacturas = new ArrayList<FacturaCabecera>();
 		lisafacturas = ejbFacturaCabecera.findAll();
 		
-	}
-
-	
-	
-
-	public List<Cliente> getListacliente() {
-		return listacliente;
-	}
-
-	public void setListacliente(List<Cliente> listacliente) {
-		this.listacliente = listacliente;
 	}
 
 	public List<Empleados> getListaempleado() {

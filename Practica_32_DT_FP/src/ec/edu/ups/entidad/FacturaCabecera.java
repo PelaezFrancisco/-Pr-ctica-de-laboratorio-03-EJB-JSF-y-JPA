@@ -24,9 +24,6 @@ public class FacturaCabecera implements Serializable {
 	@JoinColumn(name = "emp_id",  nullable = false)
 	private Empleados empleado ;
 	
-	@ManyToOne
-	@JoinColumn(name = "cli_id", nullable = false)
-	private Cliente cliente ;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaCab")
 	private ArrayList<FacturaDetalle> facturaDet;
@@ -35,7 +32,7 @@ public class FacturaCabecera implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public FacturaCabecera(int numeroP, String fecha, Double subtotal, Double iva, Double total, char estado,
 			Empleados empleado) {
 		super();
@@ -47,6 +44,9 @@ public class FacturaCabecera implements Serializable {
 		this.estado = estado;
 		this.empleado = empleado;
 	}
+
+
+
 
 	public int getNumeroP() {
 		return numeroP;

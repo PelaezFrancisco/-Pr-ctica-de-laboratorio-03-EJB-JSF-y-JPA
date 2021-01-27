@@ -22,6 +22,9 @@ public class Empleados implements Serializable {
 	private String password;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
+	private ArrayList<Pedido_Cabecera> pedidos;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
 	private ArrayList<FacturaCabecera> facturas;
 	
 	public Empleados() {
