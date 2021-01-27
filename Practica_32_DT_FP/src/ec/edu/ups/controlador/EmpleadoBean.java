@@ -75,7 +75,11 @@ public class EmpleadoBean implements Serializable {
 				if (rol == 'E') {
 					url = "/private/emp/Empleado.xhtml";
 				}else {
-					url= "/private/user/Cliente.html";
+					if (rol == 'C') {
+						url= "/private/user/Cliente.html";
+					}else {
+						url="/public/IniciarSesion.xhtml";
+					}
 				}
 			}
 			return url;
