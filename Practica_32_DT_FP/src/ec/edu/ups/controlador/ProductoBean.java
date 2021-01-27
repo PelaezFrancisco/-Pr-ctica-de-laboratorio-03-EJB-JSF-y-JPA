@@ -167,6 +167,7 @@ public class ProductoBean implements Serializable {
 			
 			System.out.println("|"+this.nombre+ "|"+"|"+this.descripcion+ "|"+"|"+precio1+ "|"+"|"+this.cat+ "|");
 			ejbProductoFacade.create(new Producto(0, this.descripcion, this.nombre, precio1,  categoria));
+			listaProductos = ejbProductoFacade.findAll();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

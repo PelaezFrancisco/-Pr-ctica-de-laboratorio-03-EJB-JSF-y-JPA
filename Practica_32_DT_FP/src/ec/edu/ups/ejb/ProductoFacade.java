@@ -55,5 +55,11 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 		return productos;
 	}
 	
+	public List<Producto>ListarProductoCateg(int id){
+		String jpql = "SELECT pro FROM Producto pro  WHERE pro.categoria='" + id + "'";
+		List<Producto> productos = em.createQuery(jpql).getResultList();
+		return productos;
+	}
+	
 	
 }
