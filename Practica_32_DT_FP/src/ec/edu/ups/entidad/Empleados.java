@@ -20,6 +20,7 @@ public class Empleados implements Serializable {
 	private String direccion;
 	private String email;
 	private String password;
+	private char estado;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado")
 	private ArrayList<Pedido_Cabecera> pedidos;
@@ -33,7 +34,7 @@ public class Empleados implements Serializable {
 	}
 	
 	public Empleados(int id, String cedula, String nombre, String apellido, char rol, String telefono, String direccion,
-			String email, String password) {
+			char estado, String email, String password) {
 		super();
 		this.id = id;
 		this.cedula = cedula;
@@ -42,6 +43,7 @@ public class Empleados implements Serializable {
 		this.rol = rol;
 		this.telefono = telefono;
 		this.direccion = direccion;
+		this.estado= estado;
 		this.email = email;
 		this.password = password;
 	}
@@ -100,6 +102,31 @@ public class Empleados implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public char getEstado() {
+		return estado;
+	}
+
+	public void setEstado(char estado) {
+		this.estado = estado;
+	}
+
+	public ArrayList<Pedido_Cabecera> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(ArrayList<Pedido_Cabecera> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public ArrayList<FacturaCabecera> getFacturas() {
+		return facturas;
+	}
+
+	public void setFacturas(ArrayList<FacturaCabecera> facturas) {
+		this.facturas = facturas;
+	}
+	
 	
 	
 

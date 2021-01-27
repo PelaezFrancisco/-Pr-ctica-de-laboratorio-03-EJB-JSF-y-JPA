@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Gestion Bodegas</title>
+    <title>Gestion Empleado</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -33,18 +33,34 @@
                     <i class="fas fa-bars ml-1"></i>
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <h:form >
+            	<h:form >
 	                <ul class="navbar-nav text-uppercase ml-auto">
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Gestion Bodegas" action = "GestionBodega.xhtml" />
+	                	<li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Registar Cliente" action = "agregarCiudad.xhtml" />
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Gestion Productos" action = "GestionProductos.xhtml" />
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Bodega" action = "agregarBodegaJSF.xhtml" />
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Cerrar Sesion" action = "index.html" /> 
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Buscar Bodega" action = "buscarBodega.xhtml" />
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Editar Bodega" action = "editarBodega.xhtml" />
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Eliminar Bodega" action = "eliminarBodega.xhtml" /> 
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Listar Bodega" action = "listarBodegas.xhtml" /> 
+	                    </li>
+	                    
+	                    <li class="nav-item">
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Inventario General" action = "listarInventario.xhtml" /> 
 	                    </li>
 	                </ul>
                 </h:form>
