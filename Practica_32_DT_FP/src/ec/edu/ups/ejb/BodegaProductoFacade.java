@@ -1,12 +1,16 @@
 package ec.edu.ups.ejb;
 
+import java.beans.Statement;
+import java.sql.ResultSet;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import ec.edu.ups.entidad.Bodega;
 import ec.edu.ups.entidad.BodegaProducto;
+import ec.edu.ups.entidad.Producto;
 
 @Stateless
 public class BodegaProductoFacade extends AbstractFacade<BodegaProducto>{

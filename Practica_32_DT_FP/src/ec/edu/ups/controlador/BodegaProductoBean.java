@@ -10,13 +10,15 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
-import org.jboss.weld.context.ejb.Ejb;
+
 
 import ec.edu.ups.ejb.BodegaFacade;
 import ec.edu.ups.ejb.BodegaProductoFacade;
+import ec.edu.ups.ejb.CategoriaFacade;
 import ec.edu.ups.ejb.ProductoFacade;
 import ec.edu.ups.entidad.Bodega;
 import ec.edu.ups.entidad.BodegaProducto;
+import ec.edu.ups.entidad.Categoria;
 import ec.edu.ups.entidad.Ciudad;
 import ec.edu.ups.entidad.Producto;
 
@@ -35,6 +37,9 @@ public class BodegaProductoBean implements Serializable {
     @EJB
     private ProductoFacade ejProductoFacade;
     
+    @EJB
+    private CategoriaFacade ejCategoriaFacade;
+    
     private List<BodegaProducto> listaBodPro;
     private BodegaProducto bodegaProducto;
     
@@ -49,6 +54,7 @@ public class BodegaProductoBean implements Serializable {
    private String nombreBodega;
    private String nombreBodega1;
    private String stock;
+   private String opcion;
    
    private int stock1;
    
@@ -159,6 +165,13 @@ public class BodegaProductoBean implements Serializable {
 	public List<BodegaProducto> getListaBodegaP() {
 		return listaBodegaP;
 	}
+	public String getOpcion() {
+		return opcion;
+	}
+
+	public void setOpcion(String opcion) {
+		this.opcion = opcion;
+	}
 
 	public void setListaBodegaP(List<BodegaProducto> listaBodegaP) {
 		this.listaBodegaP = listaBodegaP;
@@ -219,9 +232,33 @@ public class BodegaProductoBean implements Serializable {
 		
 		return null;
 	}
-   
-   
-   
-   
-   
+	
+	public String Catalogo() {
+		String opcion1="Bodegas";
+
+		String opcion2="Categorias";
+		try {
+			if (this.opcion.equals(opcion1)) {
+				System.out.println("La Bodega es :" +this.nombreBodega);
+				Bodega bodega = ejBodegaFacade.buscarBodega(this.nombreBodega);
+				int idBodega = bodega.getId();
+				System.out.println("Bodega Escogida: "+bodega.getId() + "| "+ bodega.getNombre());
+				listaBodegaP = ejBodegaProductoFacade.InventarioBodega(idBodega);
+				
+			}
+			if (this.opcion.equals(opcion2)) {
+				System.out.println("La Categorias es :" +this.nombreBodega);
+				Categoria categoria = ejCategoriaFacade.buscarCategoria(this.nombreBodega);
+				int idCate = categoria.getId();
+				//listaProductos= 
+				//listaBodegaP= ejProductoFacade.ListarProductoCateg(idCate);
+		
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+	}
+	
 }

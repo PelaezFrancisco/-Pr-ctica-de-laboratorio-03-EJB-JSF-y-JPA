@@ -41,44 +41,32 @@
                 </ul>
             </div>
         </div>
-    </nav>
-<!--  
+    </nav> 
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
             <div class="masthead-heading text-uppercase">Inventario de la Empresa</div>
                 <h:form>
-					<h:dataTable value="#{productoBean.listaProductos}" var="pro" styleClass="tabla"
-						headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+					<h:dataTable value="#{bodegaProductoBean.listaBodPro}" var="bp">
 					<h:column>
-						<f:facet name="header">Codigo</f:facet>#{pro.id}
+						<f:facet name="header">Nombre Bodega</f:facet>#{bp.bodega.nombre}
 					</h:column>
 					
 					<h:column>
-						<f:facet name="header">Nombre</f:facet>#{pro.nombre}
-					</h:column>
-					
-					<h:column>
-						<f:facet name="header">Descripcion</f:facet>#{pro.descripcion}
+						<f:facet name="header">Nombre Producto</f:facet>#{bp.producto.nombre}
 					</h:column>
 					<h:column>
-						<f:facet name="header">Precio</f:facet>#{pro.precio}
+						<f:facet name="header">Precio Producto</f:facet>#{bp.producto.precio}
 					</h:column>
 					<h:column>
-						<f:facet name="header">Stock</f:facet>#{pro.stock}
-					</h:column>
-					<h:column>
-						<f:facet name="header">Categoria</f:facet>#{pro.categoria.nombre}
-					</h:column>
-					<h:column>
-						<f:facet name="header">Bodega</f:facet>#{pro.bodega.nombre}
+						<f:facet name="header">Stock</f:facet>#{bp.stock}
 					</h:column>
 						
 					</h:dataTable>
 				</h:form>
 			</div>
 		</div>
-    </header>-->
+    </header>
 
 </h:body>
 

@@ -42,7 +42,9 @@ public class BodegaBean implements Serializable {
     private List<Producto>listaProductos;  
     private Producto producto;
     
+    private List<Bodega> listaBuscar;
     private String nombre;
+    private String nombre1;
     private String direccion;
     private String nombreCuidad;
     private int idCiudad;
@@ -57,6 +59,7 @@ public class BodegaBean implements Serializable {
     public void init() {
 		lista = new ArrayList<Bodega>();
 		listaCiudad = new ArrayList<Ciudad>();
+		listaBuscar = new ArrayList<Bodega>();
 		lista = ejbBodegaFacade.findAll();
 	
     }
@@ -75,6 +78,15 @@ public class BodegaBean implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+
+	public String getNombre1() {
+		return nombre1;
+	}
+
+	public void setNombre1(String nombre1) {
+		this.nombre1 = nombre1;
 	}
 
 	public String getDireccion() {
@@ -115,6 +127,14 @@ public class BodegaBean implements Serializable {
 	}
 	
 	
+	public List<Bodega> getListaBuscar() {
+		return listaBuscar;
+	}
+
+	public void setListaBuscar(List<Bodega> listaBuscar) {
+		this.listaBuscar = listaBuscar;
+	}
+
 	public String add() {
 		System.out.println("Nombre: "+this.nombre);
 		try {
@@ -122,12 +142,12 @@ public class BodegaBean implements Serializable {
 			Ciudad ciudad= ejbCiudadFacade.buscarNombre(this.nombreCuidad);
 			System.out.println("El nombre de la ciudad es: "+ciudad.getNombre() + " Id: "+ciudad.getId());
 			ejbBodegaFacade.create(new Bodega(0, this.direccion, this.nombre,ciudad));	
-			
+			lista = ejbBodegaFacade.findAll();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return null;
+		return "GestionBodega.xhtml";
 	}
 	
 	public String delete() {
@@ -135,7 +155,30 @@ public class BodegaBean implements Serializable {
 		System.out.println("Nombre de la Bodega: "+bodega.getNombre());
 		ejbBodegaFacade.remove(bodega);
 		
-		return null;
+		return "GestionBodega.xhtml";
 	    }
+	
+	public String buscar() {
+		System.out.println("El nombre de la bodega es: "+ this.nombre);
+		Bodega bodega = ejbBodegaFacade.buscarBodega(this.nombre);
+		listaBuscar=ejbBodegaFacade.BuscarBodega(this.nombre);
+		
+		return null;
+		
+	}
+	public String edit()  {
+		Bodega bodega = ejbBodegaFacade.buscarBodega(nombre);
+		Ciudad ciudad= ejbCiudadFacade.buscarNombre(this.nombreCuidad);
+		
+		bodega.setNombre(this.nombre1);
+		bodega.setDireccion(this.direccion);
+		bodega.setCiudad(ciudad);
+		ejbBodegaFacade.edit(bodega);
+		lista = ejbBodegaFacade.findAll();
+		return "GestionBodega.xhtml";
+	}
+	
+	
+	
 	
 }

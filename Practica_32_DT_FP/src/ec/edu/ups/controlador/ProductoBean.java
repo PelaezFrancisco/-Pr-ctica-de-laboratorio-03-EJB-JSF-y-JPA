@@ -34,6 +34,8 @@ public class ProductoBean implements Serializable {
     private List<Producto> listaProductos;
     private List<Categoria>listaCategorias;
     
+    private List<Producto> listaBuscar;
+    
     private Producto producto;
     private Categoria categoria;
     
@@ -53,6 +55,7 @@ public class ProductoBean implements Serializable {
 	public void init() {
 		listaProductos = new ArrayList<Producto>();
 		listaCategorias = new ArrayList<Categoria>();
+		listaBuscar = new ArrayList<Producto>();
 		listaProductos = ejbProductoFacade.findAll();
 		//ejbCategoryFacade.create(new Category("Hola"));
 		//ejbCategoryFacade.create(new Category("1211"));
@@ -146,6 +149,13 @@ public class ProductoBean implements Serializable {
 		this.listaCategorias = listaCategorias;
 	}
 
+	public List<Producto> getListaBuscar() {
+		return listaBuscar;
+	}
+
+	public void setListaBuscar(List<Producto> listaBuscar) {
+		this.listaBuscar = listaBuscar;
+	}
 
 	public String add() {
 		System.out.println("Nombre Categoria: "+ this.cat);
@@ -157,10 +167,11 @@ public class ProductoBean implements Serializable {
 
 			System.out.println("|"+this.nombre+ "|"+"|"+this.descripcion+ "|"+"|"+precio1+ "|"+"|"+this.cat+ "|");
 			ejbProductoFacade.create(new Producto(0, this.descripcion, this.nombre, precio1,  categoria));
+			listaProductos = ejbProductoFacade.findAll();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return null;
+		return "GestionProductos.xhtml";
 		
 	}
 	/*
@@ -174,11 +185,23 @@ public class ProductoBean implements Serializable {
 		listaProductoBodegas = ejbProductoFacade.listaInventarioBodega(3);
 		return null;
 		
-	}
+	}*/
+	
 	public String delete() {	
+		
 		Producto producto = ejbProductoFacade.buscarProducto(this.nombre);
 		System.out.println("Nombre Producto"+ this.nombre);
 		ejbProductoFacade.remove(producto);
+		return "GestionProductos.xhtml";
+	}
+	
+	public String buscar() {
+		System.out.println("Nombre: "+this.nombre);
+		//Producto producto = ejbProductoFacade.buscarProducto(this.nombre);
+		listaBuscar = ejbProductoFacade.BuscarProducto(this.nombre);
 		return null;
-	    }*/
+		
+	}
+	
+	
 }

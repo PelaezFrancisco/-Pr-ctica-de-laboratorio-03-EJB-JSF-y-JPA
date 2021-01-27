@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Agregar Bodega</title>
+    <title>ProductoBodega</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -47,35 +47,30 @@
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
-            <div class="masthead-heading text-uppercase">Agregar Bodega</div>
-                <h:form >
+            <div class="masthead-heading text-uppercase">Asignar Producto a Bodega</div>
+                <h:form id="formulario">
+                	
                 	<br></br>
-                    <label> Cuidad </label>
+                    <label> Nombre Producto </label>
                     <br></br>
-                    <h:selectOneMenu value="#{bodegaBean.nombreCuidad}">
-						<f:selectItem itemValue="Ambato" itemLabel="1. Ambato" />
-						<f:selectItem itemValue="Cuenca" itemLabel="2. Cuenca" />
-						<f:selectItem itemValue="Guayaquil" itemLabel="3. Guayaquil" />
-						<f:selectItem itemValue="Quito" itemLabel="4. Quito" />
-						<f:selectItem itemValue="Loja" itemLabel="5. Loja" />
-					</h:selectOneMenu>
+                    <h:inputText id="nombre" value="#{bodegaProductoBean.nombrePro}" />
                     <br></br>
                     <br></br>
                     <label> Nombre Bodega </label>
                     <br></br>
-                    <h:inputText id="bodega" value="#{bodegaBean.nombre}" />
+                    <h:inputText id="bodega" value="#{bodegaProductoBean.nombreBodega}" />
                     <br></br>
                     <br></br>
-                    <label> Direccion </label>
+                    <label> Stock del Producto</label>
                     <br></br>
-                    <h:inputText id="direccion" value="#{bodegaBean.direccion}" />
+                    <h:inputText id="stock" value="#{bodegaProductoBean.stock}" />
                     <br></br>
-					<br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaBean.add}" />
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{bodegaProductoBean.add}" />
                 </h:form>
             </div>
         </div>
-    </header>
+    </header> 
 
 </h:body>
 

@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Gestion Productos</title>
+    <title>Iniciar Sesion</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -19,9 +19,10 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../css/styles.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
 
 </h:head>
+
 <h:body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -32,51 +33,31 @@
                     <i class="fas fa-bars ml-1"></i>
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-            	<h:form >
-	                <ul class="navbar-nav text-uppercase ml-auto">
-	                	<li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Categoria" action = "agregarCategoria.xhtml" />
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Producto" action = "agregarProducto.xhtml" />
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Buscar Producto" action = "buscarProducto.xhtml" />
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Eliminar Producto" action = "eliminarProducto.xhtml" /> 
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Listar Producto" action = "listarProductos.xhtml" /> 
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Asignar Producto a Bodega" action = "asignarProBog.xhtml" /> 
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Inventario Por Bodega" action = "InventarioPorBodega.xhtml" /> 
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Aumentar Stock" action = "aumentarStock.xhtml" /> 
-	                    </li>
-	                    
-	                </ul>
-                </h:form>
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Pagina Principal</a></li>
+                </ul>
             </div>
         </div>
     </nav>
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Bienvenido a Gestion Productos - Realice sus Consultas</div>
-            <div class="masthead-heading text-uppercase">Distribuidora FPDT</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            <div class="masthead-subheading">
+                <h:form id="formulario01">
+                	<br></br>
+                    <label> Correo Electronico </label>
+                    <br></br>
+                    <h:inputText id="email" value="#{empleadoBean.email}" />
+                    <br></br>
+                    <br></br>
+                    <label> Contraseña </label>
+                    <br></br>
+                    <h:inputSecret id="pass" value="#{empleadoBean.pass}" />
+                    <br></br>
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="IniciarSesion" action="#{empleadoBean.IniciarSesion}" />
+                </h:form>
+            </div>
         </div>
     </header>
 
