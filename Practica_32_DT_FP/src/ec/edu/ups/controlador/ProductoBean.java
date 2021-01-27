@@ -100,7 +100,6 @@ public class ProductoBean implements Serializable {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
 	public String getPrecio() {
 		return precio;
 	}
@@ -165,6 +164,7 @@ public class ProductoBean implements Serializable {
 			System.out.println("El nombre de la Categoria Buscado: " +categoria.getNombre() +" El ID : "+ categoria.getId());
 			precio1 = Double.parseDouble(this.precio);
 			
+
 			System.out.println("|"+this.nombre+ "|"+"|"+this.descripcion+ "|"+"|"+precio1+ "|"+"|"+this.cat+ "|");
 			ejbProductoFacade.create(new Producto(0, this.descripcion, this.nombre, precio1,  categoria));
 			listaProductos = ejbProductoFacade.findAll();

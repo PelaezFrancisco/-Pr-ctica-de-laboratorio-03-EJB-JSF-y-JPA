@@ -35,6 +35,7 @@ public class Producto implements Serializable {
 
 	}
 
+
 	public Producto(int id, String descripcion, String nombre, double precio,  Categoria categoria) {
 		super();
 		this.id = id;
