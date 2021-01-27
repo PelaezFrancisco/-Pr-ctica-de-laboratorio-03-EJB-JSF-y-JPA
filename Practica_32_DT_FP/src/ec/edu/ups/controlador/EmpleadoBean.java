@@ -64,14 +64,17 @@ public class EmpleadoBean implements Serializable {
 	}
 	
 	public String IniciarSesion() {
+			String url =null;
 			Empleados empleados= ejEmpleadoFacade.buscarEmp(this.email, this.pass);
 			System.out.println("Nombre :" + empleados.getNombre()+ " Rol: "+ empleados.getRol());
 			
 			char rol = empleados.getRol();
-			String admin= "A";
-			String emp= "E";
-			String cargo = Character.toString(rol);
-			return "/private/admin/Admin.xhtml";
+			if (rol == 'A') {
+				url= "/private/admin/Admin.xhtml";
+			}else {
+				url= "/private/emp/Admin.xhtml";
+			}
+			return url;
 		
 	}
 
