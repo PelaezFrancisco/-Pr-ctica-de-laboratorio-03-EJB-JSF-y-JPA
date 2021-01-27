@@ -28,6 +28,10 @@ public class Producto implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "productos" )
 	private ArrayList<FacturaDetalle> facturaDet; 
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "productos" )
+	private ArrayList<Pedido_Detalle> pedidoDet; 
+
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "producto")
 	private ArrayList<BodegaProducto> bodega_producto;
 	
@@ -100,6 +104,16 @@ public class Producto implements Serializable {
 
 	public void setBodega_producto(ArrayList<BodegaProducto> bodega_producto) {
 		this.bodega_producto = bodega_producto;
+	}
+
+
+	public ArrayList<Pedido_Detalle> getPedidoDet() {
+		return pedidoDet;
+	}
+
+
+	public void setPedidoDet(ArrayList<Pedido_Detalle> pedidoDet) {
+		this.pedidoDet = pedidoDet;
 	}
     
 	

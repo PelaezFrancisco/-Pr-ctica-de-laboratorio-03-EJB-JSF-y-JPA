@@ -30,6 +30,8 @@ public class ClienteBean implements Serializable{
 	private int id;
 	private String apellido;
 	private String cedula;
+	private String email;
+	private String password;
 	private String direccion;
 	private String nombre;
 	private String telefono;
@@ -117,6 +119,22 @@ public class ClienteBean implements Serializable{
 		this.telefono = telefono;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	/*
 	 * Metodo para buscar cliente por cedula
 	 * */
