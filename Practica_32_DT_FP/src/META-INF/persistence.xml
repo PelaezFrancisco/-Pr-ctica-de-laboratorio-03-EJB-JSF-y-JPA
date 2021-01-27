@@ -15,7 +15,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
 		<class>ec.edu.ups.entidad.Producto</class>
 		<class>ec.edu.ups.entidad.BodegaProducto</class>
 		<class>ec.edu.ups.entidad.Pedido_Cabecera</class>
-		<class>ec.edu.ups.entidad.Pedido_Detalle</class>
+		<class>ec.edu.ups.entidad.Pedido_Detalle</class> 
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
