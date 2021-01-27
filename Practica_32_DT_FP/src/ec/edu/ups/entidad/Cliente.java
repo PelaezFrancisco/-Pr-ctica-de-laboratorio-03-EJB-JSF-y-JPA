@@ -16,9 +16,11 @@ public class Cliente implements Serializable {
 	private String nombre;
 	private String apellido;
 	private String email;
+	private String username;
 	private String password;
 	private String telefono;
 	private String direccion;
+	private char estado;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
 	private ArrayList<FacturaCabecera> facturas;
@@ -31,23 +33,28 @@ public class Cliente implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
-	public Cliente(int id, String cedula, String nombre, String apellido, String email, String password,
-			String telefono, String direccion) {
+	
+	public Cliente(int id, String cedula, String nombre, String apellido, String email, String username,
+			String password, String telefono, String direccion, char estado) {
 		super();
 		this.id = id;
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
+		this.username = username;
 		this.password = password;
 		this.telefono = telefono;
 		this.direccion = direccion;
+		this.estado = estado;
 	}
 
-	
-
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -131,11 +138,11 @@ public class Cliente implements Serializable {
 	public void setPedidos(ArrayList<Pedido_Cabecera> pedidos) {
 		this.pedidos = pedidos;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public char getEstado() {
+		return estado;
 	}
-	
-
+	public void setEstado(char estado) {
+		this.estado = estado;
+	}
 	
 }
