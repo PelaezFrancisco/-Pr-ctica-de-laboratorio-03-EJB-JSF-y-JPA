@@ -38,9 +38,12 @@ private static final long serialVersionUID = 1L;
     @EJB
     private EmpleadoFacade ejbEmpleadoFacade;
     
+    
     private List<Producto> listaProductos;
     private List<Pedido_Detalle> listaPedDet;
     private List<Empleados> listaEmpleados;
+    
+    private List<Pedido_Detalle> listaPD;
     
     private int num_detalle;
     private int cantidad;
@@ -51,11 +54,16 @@ private static final long serialVersionUID = 1L;
     
     
     
-    @PostConstruct
+    public PedidoDetalleBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@PostConstruct
     public void init() {
-    	listaProductos = new ArrayList<Producto>();
     	listaPedDet = new ArrayList<Pedido_Detalle>();
-    	listaEmpleados = new ArrayList<Empleados>();
+    	listaPedDet = ejbPedDetFacade.findAll();
+    	
     }
 
 	public ProductoFacade getEjbProductoFacade() {
@@ -98,8 +106,8 @@ private static final long serialVersionUID = 1L;
 		this.listaProductos = listaProductos;
 	}
 
-	public List<Pedido_Detalle> getListaPedDet() {
-		return listaPedDet;
+	public Pedido_Detalle[] getListaPedDet() {
+		return listaPedDet.toArray(new Pedido_Detalle[0]);
 	}
 
 	public void setListaPedDet(List<Pedido_Detalle> listaPedDet) {
@@ -146,14 +154,21 @@ private static final long serialVersionUID = 1L;
 		this.pedCabecera = pedCabecera;
 	}
 	
-	
-    
     public Empleados getEmpleado() {
 		return empleado;
 	}
 
 	public void setEmpleado(Empleados empleado) {
 		this.empleado = empleado;
+	}
+
+	
+	public List<Pedido_Detalle> getListaPD() {
+		return listaPD;
+	}
+
+	public void setListaPD(List<Pedido_Detalle> listaPD) {
+		this.listaPD = listaPD;
 	}
 
 	public String aux_add_detalle(int id) {
@@ -191,5 +206,11 @@ private static final long serialVersionUID = 1L;
     	return null;
     }
     
+    public String detalles(int num_cabecera) {
+    	System.out.println("Id del PedidoCabecera " + num_cabecera);
+    	//listaPD=ejbPedDetFacade.buscarDetalle(num_cabecera);
+    	//System.out.println("Tamaño de la lista por busqueda" + listaPedDet.size());
+    	return "listarPedidosDetalle.xhtml";
+    }
     
 }
