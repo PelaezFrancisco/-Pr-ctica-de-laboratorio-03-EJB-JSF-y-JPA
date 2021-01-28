@@ -261,4 +261,5 @@ public class BodegaProductoBean implements Serializable {
 		
 	}
 	
+	
 }

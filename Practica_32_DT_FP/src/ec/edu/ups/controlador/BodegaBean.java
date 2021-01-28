@@ -178,6 +178,11 @@ public class BodegaBean implements Serializable {
 		return "GestionBodega.xhtml";
 	}
 	
+	public List<Bodega> listarBodegas(){
+		lista = ejbBodegaFacade.findAll();
+		System.out.println("Tamaño lista de bodegas: "+lista.size());
+		return lista;
+	}
 	
 	
 	

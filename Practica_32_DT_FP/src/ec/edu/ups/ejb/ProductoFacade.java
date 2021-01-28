@@ -61,5 +61,11 @@ public class ProductoFacade extends AbstractFacade<Producto>{
 		return productos;
 	}
 	
+	public List<Producto> ListarPro_Bod_Cat(String bod, String cat){
+		String jpql = "select DISTINCT pro from BodegaProducto bod, Producto pro WHERE bod.bodega.id="+bod+" and pro.id=bod.producto.id and pro.categoria.id="+cat;
+		List<Producto> productos = em.createQuery(jpql).getResultList();
+		return productos;
+	}
+	
 	
 }

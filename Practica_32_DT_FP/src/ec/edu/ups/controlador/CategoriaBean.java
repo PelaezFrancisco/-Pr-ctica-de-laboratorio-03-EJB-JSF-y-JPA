@@ -65,6 +65,11 @@ public class CategoriaBean implements Serializable {
 		ejbCategoriaFacade.create(new Categoria(0,this.nombre,this.descripcion));
 		return null;
 	}
+	
+	public String listarCategorias() {
+		lista = ejbCategoriaFacade.findAll();
+		return null;
+	}
     
     
 }

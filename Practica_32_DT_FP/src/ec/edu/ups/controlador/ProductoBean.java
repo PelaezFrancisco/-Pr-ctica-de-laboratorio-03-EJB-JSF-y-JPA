@@ -30,6 +30,9 @@ public class ProductoBean implements Serializable {
     @EJB
     private CategoriaFacade ejCategoriaFacade;
     
+    @EJB
+    private BodegaFacade ejbBodegaFacade;
+    
     
     private List<Producto> listaProductos;
     private List<Categoria>listaCategorias;
@@ -44,8 +47,36 @@ public class ProductoBean implements Serializable {
     private String precio;
     private String cat;
     private int id;
+    private String bod;
+    private String cat1;
     
-    private double precio1;
+    
+    
+    public BodegaFacade getEjbBodegaFacade() {
+		return ejbBodegaFacade;
+	}
+
+	public void setEjbBodegaFacade(BodegaFacade ejbBodegaFacade) {
+		this.ejbBodegaFacade = ejbBodegaFacade;
+	}
+
+	public String getBod() {
+		return bod;
+	}
+
+	public void setBod(String bod) {
+		this.bod = bod;
+	}
+
+	public String getCat1() {
+		return cat1;
+	}
+
+	public void setCat1(String cat1) {
+		this.cat1 = cat1;
+	}
+
+	private double precio1;
     
 	public ProductoBean() {
 		
@@ -201,6 +232,16 @@ public class ProductoBean implements Serializable {
 		listaBuscar = ejbProductoFacade.BuscarProducto(this.nombre);
 		return null;
 		
+	}
+	
+	public String listarBodCat() {
+		System.out.println("Bodega recogifa: "+this.bod);
+		System.out.println("Categoria revogida: "+this.cat1);
+		
+		listaBuscar = ejbProductoFacade.ListarPro_Bod_Cat(bod, cat1);
+		
+		System.out.println("Tamaño de lista probodcat= "+listaBuscar.size());
+		return null;
 	}
 	
 	

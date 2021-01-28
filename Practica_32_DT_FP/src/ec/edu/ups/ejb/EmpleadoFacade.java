@@ -37,6 +37,18 @@ public class EmpleadoFacade extends AbstractFacade<Empleados>{
 		}
 	}
 	
+	public Empleados findEmp (int id) {
+		try {
+			String jpql = "SELECT emp FROM Empleados emp WHERE emp.id="+id;
+			Empleados empleado = (Empleados) em.createQuery(jpql).getSingleResult();
+			return empleado;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	
 
 }

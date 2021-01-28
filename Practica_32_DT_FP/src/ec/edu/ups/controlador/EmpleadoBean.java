@@ -28,6 +28,8 @@ public class EmpleadoBean implements Serializable {
     private String email;
     private String pass;
     
+    private Empleados empleado;
+    
 	public EmpleadoBean() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -63,11 +65,29 @@ public class EmpleadoBean implements Serializable {
 		this.pass = pass;
 	}
 	
+	
+	
+	public EmpleadoFacade getEjEmpleadoFacade() {
+		return ejEmpleadoFacade;
+	}
+
+	public void setEjEmpleadoFacade(EmpleadoFacade ejEmpleadoFacade) {
+		this.ejEmpleadoFacade = ejEmpleadoFacade;
+	}
+
+	public Empleados getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleados empleado) {
+		this.empleado = empleado;
+	}
+
 	public String IniciarSesion() {
 			String url =null;
 			Empleados empleados= ejEmpleadoFacade.buscarEmp(this.email, this.pass);
 			System.out.println("Nombre :" + empleados.getNombre()+ " Rol: "+ empleados.getRol());
-			
+			empleado = empleados;
 			char rol = empleados.getRol();
 			if (rol == 'A') {
 				url= "/private/admin/Admin.xhtml";
@@ -76,7 +96,7 @@ public class EmpleadoBean implements Serializable {
 					url = "/private/emp/Empleado.xhtml";
 				}else {
 					if (rol == 'C') {
-						url= "/private/user/Cliente.html";
+						url= "/private/user/Cliente.xhtml";
 					}else {
 						url="/public/IniciarSesion.xhtml";
 					}
