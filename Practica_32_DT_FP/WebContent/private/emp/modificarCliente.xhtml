@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <title>Registar Cliente</title>
+    <title>Editar Cliente</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -47,9 +47,44 @@
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">
-            <div class="masthead-heading text-uppercase">Registar Cliente</div>
-                <h:form >
+            <div class="masthead-heading text-uppercase">Editar Cliente</div>
+                <h:form class="masthead-subheading">
+                	<br></br>
+                    <label>Ingrese la Cedula </label>
                     <br></br>
+                    <h:inputText id="cedulaCliente" value="#{empleadoBean.cedulaCliente}" />
+                    <br></br>
+                    <br></br>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Buscar" action="#{empleadoBean.buscarCliente}" />
+                
+                <br></br>
+                <br></br>  
+                <h:dataTable value="#{empleadoBean.lista}" var="c" >
+				<br></br>
+                		<h:outputLabel for="name" value="#{c.nombre}" />
+				<br></br>	
+                  	<h:column>
+                  		<h:outputLabel for="name" value="#{c.apellido}" />
+					</h:column>
+
+					<h:column>
+						<h:outputLabel for="name" value="#{c.cedula}" />
+					</h:column>
+
+					<h:column>
+						<h:outputLabel for="name" value="#{c.direccion}" />
+					</h:column>
+
+					<h:column>
+						<h:outputLabel for="name" value="#{c.email}" />
+					</h:column>
+					
+					<h:column>
+						<h:outputLabel for="name" value="#{c.telefono}" />
+					</h:column>
+					</h:dataTable>
+					
+					<br></br>
                     <label> Nombre</label>
                     <br></br>
                     <h:inputText id="nombre" value="#{empleadoBean.nombre}" />
@@ -74,13 +109,9 @@
                     <br></br>
                     <h:inputText id="email1" value="#{empleadoBean.email1}" />
                     <br></br>
-                    <label>Password</label>
-                    <br></br>
-                    <h:inputText id="pass1" value="#{empleadoBean.pass1}" />
-                    <br></br>
-					<br></br>
-                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Agregar" action="#{empleadoBean.add}" />
-                </h:form>
+                    <h:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Editar" action="#{empleadoBean.modificar}" />
+              
+              </h:form>
             </div>
         </div>
     </header>

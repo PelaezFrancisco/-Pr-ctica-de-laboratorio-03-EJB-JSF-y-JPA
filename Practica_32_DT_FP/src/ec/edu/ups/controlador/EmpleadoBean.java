@@ -24,15 +24,25 @@ public class EmpleadoBean implements Serializable {
     private EmpleadoFacade ejEmpleadoFacade;
     
     private List<Empleados> lista;
+    private Empleados empleados;
+    
+    private List<Empleados> listaBuscar;
     
     private String nombre;
     private String apellido;
     private String cedula;
     private String telefono;
     private String direccion;
+    private String pass1;
+    private String email1;
+    private String estadoCliente;
     private String pass;
     private String email;
+    private char rol;
+    private char estado;
  
+    private String cedula1;
+    private String cedulaCliente;
     
 	public EmpleadoBean() {
 		super();
@@ -41,8 +51,10 @@ public class EmpleadoBean implements Serializable {
     
 	@PostConstruct
     public void init() {
+		empleados = new Empleados();
 		lista = new ArrayList<Empleados>();
 		
+		listaBuscar= ejEmpleadoFacade.buscarC('A','C');
 	}
 
 	public Empleados[] getLista() {
@@ -51,6 +63,39 @@ public class EmpleadoBean implements Serializable {
 
 	public void setLista(List<Empleados> lista) {
 		this.lista = lista;
+	}
+	
+
+	public List<Empleados> getListaBuscar() {
+		return listaBuscar;
+	}
+
+	public void setListaBuscar(List<Empleados> listaBuscar) {
+		this.listaBuscar = listaBuscar;
+	}
+
+	public String getEstadoCliente() {
+		return estadoCliente;
+	}
+
+	public void setEstadoCliente(String estadoCliente) {
+		this.estadoCliente = estadoCliente;
+	}
+
+	public String getCedula1() {
+		return cedula1;
+	}
+
+	public void setCedula1(String cedula1) {
+		this.cedula1 = cedula1;
+	}
+
+	public String getCedulaCliente() {
+		return cedulaCliente;
+	}
+
+	public void setCedulaCliente(String cedulaCliente) {
+		this.cedulaCliente = cedulaCliente;
 	}
 
 	public String getEmail() {
@@ -109,10 +154,43 @@ public class EmpleadoBean implements Serializable {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	
+
+	public String getPass1() {
+		return pass1;
+	}
+
+	public void setPass1(String pass1) {
+		this.pass1 = pass1;
+	}
+
+	public String getEmail1() {
+		return email1;
+	}
+
+	public void setEmail1(String email1) {
+		this.email1 = email1;
+	}
+
+	public char getRol() {
+		return rol;
+	}
+
+	public void setRol(char rol) {
+		this.rol = rol;
+	}
+
+	public char getEstado() {
+		return estado;
+	}
+
+	public void setEstado(char estado) {
+		this.estado = estado;
+	}
 
 	public String IniciarSesion() {
 			String url =null;
-			Empleados empleados= ejEmpleadoFacade.buscarEmp(this.email, this.pass);
+			Empleados empleados= ejEmpleadoFacade.buscarEmp(email, pass);
 			System.out.println("Nombre :" + empleados.getNombre()+ " Rol: "+ empleados.getRol());
 			
 			char rol = empleados.getRol();
@@ -132,9 +210,72 @@ public class EmpleadoBean implements Serializable {
 			return url;
 	}
 	
-	
 	public String add() {
+		System.out.println("Nombre: "+ this.nombre+" Cedula:"+this.cedula);
+		rol = 'C';
+		estado = 'A';
+		try {
+			Empleados emp = new Empleados();
+			emp.setId(0);
+			emp.setNombre(this.nombre);
+			emp.setApellido(this.apellido);
+			emp.setCedula(this.cedula);
+			emp.setDireccion(this.direccion);
+			emp.setTelefono(this.telefono);
+			emp.setEmail(this.email1);
+			emp.setPassword(this.pass1);
+			emp.setRol(rol);
+			emp.setEstado(estado);
+			ejEmpleadoFacade.create(emp);
+			lista = ejEmpleadoFacade.findAll();
+			emp = new Empleados();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error");
+			
+		}
+		return "Empleado.xhtml";
+	}
+	
+	public String listarC() {
+		char cliente= 'C';
+		lista=ejEmpleadoFacade.listaClientes(cliente);
+		return "listarClientes.xhtml";
+	}
+	
+	public String buscarCliente() {
+		System.out.println("La cedula ingresada es: "+this.cedulaCliente);
+		lista= ejEmpleadoFacade.buscarCli(cedulaCliente);
 		return null;
 	}
+	
+	public String editar() {
+		System.out.println("La cedula a buscar es: "+ this.cedula1);
+		Empleados empleado = new Empleados();
+		empleado = ejEmpleadoFacade.buscarEmp(cedula1);
+		
+		char estado1 ='I';
+		empleado.setEstado(estado1);
+		ejEmpleadoFacade.edit(empleado);
+		return "listarClientes.xhtml";
+	}
+	
+	public String modificar() {
+		Empleados empleado = new Empleados();
+		empleado = ejEmpleadoFacade.buscarEmp(this.cedulaCliente);
+		System.out.println("La cedula del cliente es: "+this.cedulaCliente);
+		System.out.println("|"+nombre+"|"+"|"+apellido+"|"+"|"+cedula+"|"+"|"+email1+"|"+"|"+direccion+"|"+"|"+telefono+"|");
+		
+		empleado.setNombre(nombre);
+		empleado.setApellido(apellido);
+		empleado.setCedula(cedula);
+		empleado.setDireccion(direccion);
+		empleado.setEmail(email1);
+		empleado.setTelefono(telefono);
+		ejEmpleadoFacade.edit(empleado);
+		empleado = new Empleados();
+		return "Empleado.xhtml";
+	}
+	
 
 }

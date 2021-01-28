@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../css/styles.css" rel="stylesheet" />
+    <link href="/Practica_32_DT_FP/css/styles.css" rel="stylesheet" />
 
 </h:head>
 
@@ -36,31 +36,19 @@
             	<h:form >
 	                <ul class="navbar-nav text-uppercase ml-auto">
 	                	<li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Registar Cliente" action = "agregarCiudad.xhtml" />
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Registar Cliente" action = "registrarCliente.xhtml" />
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Agregar Bodega" action = "agregarBodegaJSF.xhtml" />
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Editar Cliente" action = "modificarCliente.xhtml" />
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Buscar Bodega" action = "buscarBodega.xhtml" />
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Eliminar Cliente" action = "eliminarCliente.xhtml" /> 
 	                    </li>
 	                    
 	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Editar Bodega" action = "editarBodega.xhtml" />
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Eliminar Bodega" action = "eliminarBodega.xhtml" /> 
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Listar Bodega" action = "listarBodegas.xhtml" /> 
-	                    </li>
-	                    
-	                    <li class="nav-item">
-	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Inventario General" action = "listarInventario.xhtml" /> 
+	                    <h:commandLink  class="nav-link js-scroll-trigger" value = "Listar Clientes" action = "#{empleadoBean.listarC}" /> 
 	                    </li>
 	                </ul>
                 </h:form>
